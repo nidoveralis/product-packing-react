@@ -1,0 +1,44 @@
+.products {
+  text-align: center;
+  margin-bottom: auto;
+}
+
+.products__title {
+  font-size: 48px;
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.products__subtitle {
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 4px 0 0 0;
+}
+
+.products__list {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 11px 0;
+}
+
+.products__list-item {
+  background-color: #F3F0E9;
+  margin: 0 9px;
+  padding: 10px 23px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 27px;
+}
+
+.products__list-item_pack {
+  color: #fff;
+  background-color: #D47812;
+}
+
+.cards {
+  margin-top: 32px;
+}
