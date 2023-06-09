@@ -1,7 +1,10 @@
 import Card from '../Card/Cards';
 import './Products.css';
 
-function Products() {
+
+function Products({cards, onScanCard}) {
+
+
   return(
     <div className="products">
     <h1 className="products__title">Сканируйте товары из ячейки</h1>
@@ -12,9 +15,9 @@ function Products() {
         <li className="products__list-item products__list-item_pack conteiner">Коробка YMF</li>
       </ul>
     <div className="cards">
-      <Card />
-      <Card />
-      <Card />      
+      {cards.map((item)=>
+        <Card key={item._id} item={item} onScanCard={onScanCard} />
+      )}    
 
     </div>
     

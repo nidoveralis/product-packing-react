@@ -1,15 +1,30 @@
+import React from 'react';
 import './Card.css';
 
-function Card() {
+
+function Card({item, onScanCard}) {
+
+  const [cardNumber, setCardNumber] = React.useState(item.count>1 ? "Развернуть" : item.barcode)
+
+  const tagCardClass = `card__tag ${item.tag ? "card__tag_active" : ""}`;
+  const countCardClass = `card__count conteiner ${item.scan ? "card__count_active" : ""}`;///////card__count_no-one 
+  const numberCardClass = `card__number ${item.count>1 ? "card__button-more" : ""}`;
+
+
+  function handleScanProduct() {
+    
+    onScanCard(item)
+  };
+  console.log(item.scan)
   return (
-    <div className="card">
+    <div className="card" >
       <div className="card__info">
-        <div className="card__img" />
-        <p className="card__description">Умная колонка Яндекс Станция Лайт, ультрафиолет</p>
-        <button className="card__tag">Пузырчатая плёнка</button>
+        <div className="card__img" style={{backgroundImage: `url(${item.img})`}} />
+        <p className="card__description">{item.description}</p>
+        <button className={tagCardClass}>{item.tag}</button>
       </div>
-      <div className="card__count card__count_no-one conteiner">2 из 2 шт.</div>
-      <button className="card__number card__button-more">Развернуть</button>              
+      <button className={countCardClass} onClick={handleScanProduct} >{`${item.count} шт.`}</button>
+      <button className={numberCardClass}>{cardNumber}</button>              
       </div>
   )
 }
