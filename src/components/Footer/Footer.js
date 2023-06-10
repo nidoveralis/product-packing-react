@@ -1,9 +1,12 @@
 import './Footer.css';
 
-function Footer() {
+function Footer({cellAssembled}) {
+
+  const closeBoxClass = `${cellAssembled ? 'hidden' : ''} footer__buttons`;
+
   return(
     <footer className="footer">
-    <div className="footer__buttons">
+    <div className={closeBoxClass}>
       <button className="footer-button button-keyboard">
         <div className="footer-button__icon footer-button__icon_keyboard"></div>
         <p className="footer-button__text">Ввести с клавиатуры</p>
