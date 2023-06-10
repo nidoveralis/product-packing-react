@@ -23,8 +23,6 @@
   padding-bottom: 12.5px;
   padding-top: 12.5px;
   text-align: center;
-  border: none;
-  cursor: pointer;
 }
 
 .card__count_active {
@@ -64,8 +62,8 @@
 }
 
 .card__info {
-  display: flex;
   width: 632px;
+  max-height: 118px;
   display: grid;
   grid-template-columns: 142px auto;
   grid-template-rows: auto  50px;
@@ -78,6 +76,7 @@
   margin-top: 12px;
   width: 261px;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .card__number:hover {
@@ -91,8 +90,8 @@
 .card__tag_active {
   grid-row: 2/3;
   grid-column: 2/3;
-  display: block;
-  border: none;
+  display: flex;
+  align-items: center;
   background-color: #E0EEFF;
   border-radius: 12px;
   -webkit-border-radius: 12px;
@@ -104,6 +103,7 @@
   line-height: 23px;
   width: fit-content;
   padding: 0 16px;
+  margin: 0;
   letter-spacing: -.011em;
   height: 48px;
 }

@@ -14,12 +14,12 @@ function Products({cards, onScanCard}) {
         <li className="products__list-item conteiner">Почта России</li>
         <li className="products__list-item products__list-item_pack conteiner">Коробка YMF</li>
       </ul>
-    <div className="cards">
+    <ul className="cards">
       {cards.map((item)=>
         <Card key={item._id} item={item} onScanCard={onScanCard} />
       )}    
 
-    </div>
+    </ul>
     
   </div>
 
