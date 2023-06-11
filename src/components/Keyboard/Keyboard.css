@@ -1,0 +1,30 @@
+.keyboard-button {
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 5px 46px rgba(0, 0, 0, 0.12), 0 7px 15px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+}
+
+.text-container {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-items: center;
+
+}
+
+.keyboard-button-text__icon {
+    margin-right: 12px;
+
+}
+
+.keyboard-button__text {
+    margin: 0;
+    text-align: center;
+    font-size: 25px;
+}
