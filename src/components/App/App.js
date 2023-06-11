@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
-import Products from '../Products/Products';
+import Main from '../Main/Main';
 import Success from '../Success/Success';
 
 
@@ -46,15 +44,13 @@ const cardsExemple = [
 function App() {
   const sentCards = [];
   const [cards, setCards] = React.useState(cardsExemple);
-  const [cellAssembled, setCellAssembled] = React.useState(false);
   
   function onScanCard(item) {
     ////отправить запрос api
-    //console.log(item)
+    console.log(item)
     if(!item.full){
       item.scan++;
       sentCards.push(item.barcode);///доработать
-      console.log(Math.floor(100 - (item.scan*100/item.count)))
       if(item.scan===item.barcode.length) {
         item.full=true;
       };
@@ -64,13 +60,8 @@ function App() {
 
   return (
       <div className="page">
-        <Header />
-        <main className="content">
-          <button className="content__button have-problem">Есть проблема</button>
-          {cellAssembled ? <Success /> : <Products cards={cards} onScanCard={onScanCard} />}
-            <button className="content__button close-box">{cellAssembled ? 'Готово' : 'Закрыть коробку'}</button>
-        </main>
-        <Footer cellAssembled={cellAssembled} />
+        <Main cards={cards} onScanCard={onScanCard} />
+        
       </div>
   );
 }

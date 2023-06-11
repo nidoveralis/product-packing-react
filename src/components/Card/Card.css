@@ -1,14 +1,22 @@
 .card {
-  width: 1120px;
+  list-style-type: none;
   border-bottom: 1px solid #E8E8E8;
   font-size: 20px;
   line-height: 22px;
   font-weight: 400;
-  padding-top: 25px;
-  padding-bottom: 25px;
+}
+
+.card__conteiner {
+  width: 1120px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.card__conteiner_hidden {
+  display: none;
 }
 
 .card__button-more {
@@ -44,6 +52,7 @@
   text-align: start;
   margin: 12px 0 0 0;
   letter-spacing: -.004em;
+  grid-column: 2/3;
 }
 
 .card__img {
