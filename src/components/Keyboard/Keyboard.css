@@ -5,7 +5,8 @@
     width: 100%;
     padding: 0;
     margin: 0;
-
+    display: flex;
+    align-items: center;
 }
 
 .text-container {
@@ -27,4 +28,15 @@
     margin: 0;
     text-align: center;
     font-size: 25px;
+}
+
+.button__back {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 18px;
+    padding: 15px 80px;
+    border-radius: 20px;
+    margin-right: 350px;
+    margin-left: 20px;
 }
