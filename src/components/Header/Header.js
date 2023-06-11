@@ -1,8 +1,29 @@
+import React from 'react';
 import logoYandex from '../../images/logo-yandex.jpg';
 import logoMarket from '../../images/logo-market.jpg';
+import logoDefect from '../../images/icon_defect.svg';
+import logoTable from '../../images/icon_changetab.svg';
+import logoExit from '../../images/icon_exit.svg';
+import logoCloseDrop from '../../images/icon_closedrop.svg';
+import logoSendDrop from '../../images/icon_senddrop.svg';
+import logoNone from '../../images/icon_none.svg';
+import logoSetting from '../../images/icon_setting.svg';
+import logoHelp from '../../images/icon_help.svg';
 import './Header.css';
 
 function Header() {
+
+  const [openMenu, setOpenMenu] = React.useState(false);
+  const closeBoxClass = `${!openMenu ? 'user-menu_hidden' : ''} user-menu`;
+  function handelOpenMenu() {
+    setOpenMenu(true);
+  };
+
+  function handelCloseMenu() {
+    setOpenMenu(false);
+    console.log('lkjhghjkl')
+  };
+
   return(
     <header className="header">
       <div className="header-menu">
@@ -18,15 +39,54 @@ function Header() {
 
       <h3 className="header__title">Упаковка</h3>
       
-      <div className="user-menu">
-        <div className="user-menu__info">
-          <p className="user-menu__login">sof-natgemokee</p>
-          <div className="user-menu__status conteiner">
-            <div className="user-menu__logo"></div>
-            <p className="user-menu__text">79%</p>
+      <div className="user">
+        <div className="user__info">
+          <p className="user__login">sof-natgemokee</p>
+          <div className="user__status conteiner">
+            <div className="user__logo"></div>
+            <p className="user__text">79%</p>
           </div>
         </div>
-        <button className="user-menu__setting"></button>
+        <button className="user__setting" onClick={handelOpenMenu}></button>
+
+        <div className={closeBoxClass}>
+          <ul className="user-menu__list">
+            <li className="user-menu__item">
+              <img src={logoDefect} alt="Товар бракованный" className="user-menu__icon" />
+              <p>Товар бракованный</p>
+            </li>
+            <li className="user-menu__item">
+              <img src={logoNone} alt="Товара нет" className="user-menu__icon" />
+              <p>Товара нет</p>
+            </li>
+            <li className="user-menu__item">
+              <img src={logoTable} alt="Поменять стол" className="user-menu__icon" />
+              <p>Поменять стол</p>
+            </li>
+            <li className="user-menu__item">
+              <img src={logoSendDrop} alt="Отправить дропку" className="user-menu__icon" />
+              <p>Отправить дропку</p>
+            </li>
+            <li className="user-menu__item">
+              <img src={logoCloseDrop} alt="Закрыть дропку" className="user-menu__icon" />
+              <p>Закрыть дропку</p>
+            </li>
+            <li className="user-menu__item">
+              <img src={logoSetting} alt="Настройки" className="user-menu__icon" />
+              <p>Настройки</p>
+            </li>
+            <li className="user-menu__item">
+              <img src={logoHelp} alt="Помощь" className="user-menu__icon" />
+              <p>Помощь</p>
+            </li>
+            <li className="user-menu__item" >
+              <img src={logoExit} alt="Выйти" className="user-menu__icon" />
+              <p>Выйти</p>
+            </li>
+          </ul>
+          <button  className="user-menu__button" onClick={handelCloseMenu}>Закрыть</button>
+        </div>
+
       </div>
     </header>
   )

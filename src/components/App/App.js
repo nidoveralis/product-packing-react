@@ -46,7 +46,7 @@ const cardsExemple = [
 function App() {
   const sentCards = [];
   const [cards, setCards] = React.useState(cardsExemple);
-  const [cellAssembled, setCellAssembled] = React.useState(true);
+  const [cellAssembled, setCellAssembled] = React.useState(false);
   
   function onScanCard(item) {
     ////отправить запрос api
