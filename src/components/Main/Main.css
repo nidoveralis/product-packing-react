@@ -1,0 +1,7 @@
+.content {
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 53px 25px 20px;
+}
