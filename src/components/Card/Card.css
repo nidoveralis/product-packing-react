@@ -31,19 +31,12 @@
   padding-bottom: 12.5px;
   padding-top: 12.5px;
   text-align: center;
+  width: 77px;
 }
 
 .card__count_active {
   background-color: #2AAD2E;
   color: #fff;
-}
-
-.card__count_one {
-  width: 77px;
-}
-
-.card__count_no-one {
-  width: 134px;
 }
 
 .card__description {
@@ -115,4 +108,32 @@
   margin: 0;
   letter-spacing: -.011em;
   height: 48px;
+}
+
+.progress-bar {
+  height: 48px;
+  width: 134px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-bar__conteiner {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(243, 240, 233, 0.5);
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background-color: #2AAD2E;
+}
+
+.progress-bar__subtitle {
+  position: absolute;
+  margin: 0;
+}
+
+.progress-bar__subtitle_active {
+  color: #fff;
 }
