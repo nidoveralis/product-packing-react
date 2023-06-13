@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../vendor/normalize.css';
+import '../../vendor/fonts/fonts.css';
 import './App.css';
 import Main from '../Main/Main';
 import {Route, Routes} from "react-router-dom";
