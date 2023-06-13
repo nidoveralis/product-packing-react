@@ -1,6 +1,7 @@
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Products from '../Products/Products';
+import Statistic from '../Statistic/Statistic';
 
 function Main(props){
   return(
@@ -12,6 +13,7 @@ function Main(props){
             <button className="content__button close-box">Закрыть коробку</button>
         </main>
         <Footer />
+        <Statistic />
     </>
   )
 };
