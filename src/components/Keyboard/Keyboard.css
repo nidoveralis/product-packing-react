@@ -10,6 +10,14 @@
     padding: 30px 0 30px;
 }
 
+.keyboard-button-back {
+    justify-content: flex-start;
+}
+
+.keyboard-button-change {
+    justify-content: flex-end;
+}
+
 .text-container {
     max-width: 100%;
     display: flex;

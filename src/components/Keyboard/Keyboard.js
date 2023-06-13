@@ -4,7 +4,7 @@ import iconKeyboard from "../../images/icon__keyboard.svg";
 
 function Keyboard(props) {
     return (
-        <button className="keyboard-button">
+        <button className={`keyboard-button ${props.className}`}>
             {props.button}
             <div className="text-container">
                 <img className="keyboard-button-text__icon" src={iconKeyboard} alt="Иконка клавиатуры"/>

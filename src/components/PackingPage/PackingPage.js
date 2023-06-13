@@ -17,7 +17,7 @@ function PackingPage(props) {
                     <h1 className="packing__text">Упакуйте товары и&nbsp;сканируйте коробку <span className="packing-type">{props.type}</span></h1>
                 </div>
             </section>
-            <Keyboard button={<button className="button__back">Назад</button>}/>
+            <Keyboard button={<button className="button__back">Назад</button>} className="keyboard-button-back"/>
             <Footer/>
         </>
     )

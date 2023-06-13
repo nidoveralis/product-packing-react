@@ -15,9 +15,15 @@
     margin: 0;
     font-size: 50px;
     text-align: center;
-
 }
 
 .main__text_num {
     margin-top: 7px;
+}
+
+@media screen and (min-width: 1500px) {
+    .main__text {
+        font-size: 64px;
+        line-height: 1.15;
+    }
 }
