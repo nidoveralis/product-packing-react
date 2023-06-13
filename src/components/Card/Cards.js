@@ -16,7 +16,8 @@ function Card({item, onScanCard, }) {
   const progressColor = `${Math.floor((100 / item.count) * item.scan)}%`;  
   
   function handleScanProduct() {
-    onScanCard(item);
+    console.log()
+    onScanCard(item,item.barcode);
   };
 
   function openHiddenProducts() {
@@ -31,24 +32,22 @@ function Card({item, onScanCard, }) {
           <p className="card__description">{item.description}</p>
           <p className={tagCardClass}>{item.tag}</p>
         </div>
-        {item.count>1 ? 
             <div className="progress-bar">
             <div className="progress-bar__conteiner conteiner">
               <div className="progress-bar__fill conteiner" style={{width: progressColor, opacity: progressColor }}></div>
             </div>
             <p className={progressCardClass}>{countContent}</p>
             </div>
-        : <div className={countCardClass} >1 шт.</div> }
-        {item.count>1 ? <button className="card__number card__button-more" onClick={openHiddenProducts}>Развернуть</button> : <button className="card__number"  onClick={handleScanProduct} >{item.barcode[0]}</button> }
+        {item.count>1 ? <button className="card__number card__button-more" onClick={openHiddenProducts}>Развернуть</button> : <button className="card__number"  onClick={handleScanProduct} >{item.barcode[0].code}</button> }
       </div>   
       {item.barcode.map((el)=>
-        <div className={hiddenProductsClass} key={el}>
+        <div className={hiddenProductsClass} key={el.code}>
         <div className="card__info">
           <p className="card__description">{item.description}</p>
           <p className={tagCardClass}>{item.tag}</p>
         </div>
         <div className={countCardClass} >1 шт.</div> 
-        <button className='card__number' onClick={handleScanProduct} >{el}</button>
+        <button className='card__number' onClick={handleScanProduct} disabled={el.scan} >{el.code}</button>
       </div> 
       )}
       

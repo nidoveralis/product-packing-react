@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../vendor/normalize.css';
+import '../../vendor/fonts/fonts.css'
 import './App.css';
 import Main from '../Main/Main';
 import Success from '../Success/Success';
@@ -15,7 +17,11 @@ const cardsExemple = [
     count:1,
     img: img3,
     tag: 'Пузырчатая плёнка',
-    barcode: ['9234 5678 234 32'],
+    barcode: [
+      {
+        code: '9234 5678 234 32',
+        scan: false
+      }],
     scan: 0,
     full: false
   },
@@ -25,7 +31,19 @@ const cardsExemple = [
     count:3,
     img: img0,
     tag: '',
-    barcode: ['9234 5678 234 33','9234 5678 234 36','9234 5678 234 37'],
+    barcode: [
+      {
+        code: '9234 5678 234 33',
+        scan: false
+      },
+      {
+        code: '9234 5678 234 36',
+        scan: false
+      },
+      {
+        code: '9234 5678 234 37',
+        scan: false
+      }],
     scan: 0,
     full: false
   },
@@ -35,7 +53,15 @@ const cardsExemple = [
     count:2,
     img: img1,
     tag: '',
-    barcode: ['9234 5678 234 34','9234 5678 234 35'],
+    barcode: [
+      {
+        code: '9234 5678 234 34',
+        scan: true
+      },
+      {
+        code: '9234 5678 234 35',
+        scan: true
+      }],
     scan: 2,
     full: true
   }
@@ -45,12 +71,13 @@ function App() {
   const sentCards = [];
   const [cards, setCards] = React.useState(cardsExemple);
   
-  function onScanCard(item) {
+  function onScanCard(item,el) {
     ////отправить запрос api
-    console.log(item)
+    //console.log(item,barcode)
     if(!item.full){
       item.scan++;
-      sentCards.push(item.barcode);///доработать
+      sentCards.push(item.barcode[el].code);///доработать
+      item.barcode[el].scan=true;
       if(item.scan===item.barcode.length) {
         item.full=true;
       };
