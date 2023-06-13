@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import Main from '../Main/Main';
-import Success from '../Success/Success';
-
-
+import {Route, Routes} from "react-router-dom";
 import img0 from '../../images/img0.png'
 import img1 from '../../images/img1.png'
 import img3 from '../../images/img3.png'
+import FirstPage from "../FirstPage/FirstPage";
+import PackingPage from "../PackingPage/PackingPage";
+import Success from "../Success/Success";
 
 const cardsExemple = [
   {
@@ -44,7 +45,7 @@ const cardsExemple = [
 function App() {
   const sentCards = [];
   const [cards, setCards] = React.useState(cardsExemple);
-  
+
   function onScanCard(item) {
     ////отправить запрос api
     console.log(item)
@@ -59,10 +60,12 @@ function App() {
   };
 
   return (
-      <div className="page">
-        <Main cards={cards} onScanCard={onScanCard} />
-        
-      </div>
+      <Routes>
+        <Route path="/" element={<FirstPage/>}/>
+        <Route path="/main" element={<Main/>}/>
+        <Route path="/packing" element={<PackingPage type="YME"/>}/>
+        <Route path="/success" element={<Success/>}/>
+      </Routes>
   );
 }
 
