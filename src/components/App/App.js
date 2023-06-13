@@ -56,39 +56,44 @@ const cardsExemple = [
     barcode: [
       {
         code: '9234 5678 234 34',
-        scan: true
+        scan: false
       },
       {
         code: '9234 5678 234 35',
         scan: true
       }],
-    scan: 2,
-    full: true
+    scan: 1,
+    full: false
   }
 ]
 
 function App() {
   const sentCards = [];
   const [cards, setCards] = React.useState(cardsExemple);
+  const [openStatictic, setOpenStatictic] = React.useState(true);
   
-  function onScanCard(item,el) {
+  function onScanCard(item,index) {
     ////отправить запрос api
-    //console.log(item,barcode)
+    //console.log(item,index)
     if(!item.full){
       item.scan++;
-      sentCards.push(item.barcode[el].code);///доработать
-      item.barcode[el].scan=true;
+      sentCards.push(item.barcode[index].code);///доработать
+      item.barcode[index].scan=true;
       if(item.scan===item.barcode.length) {
         item.full=true;
       };
       setCards((state) => state.map((c) => c._id === item._id ? item : c));///доработать
     };
+    console.log(sentCards)
+  };
+
+  function handleOpenStatistic() {
+    setOpenStatictic(!openStatictic);
   };
 
   return (
       <div className="page">
-        <Main cards={cards} onScanCard={onScanCard} />
-        
+        <Main cards={cards} onScanCard={onScanCard} openStatictic={openStatictic} handleOpenStatistic={handleOpenStatistic}/>
       </div>
   );
 }

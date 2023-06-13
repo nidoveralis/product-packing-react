@@ -5,19 +5,17 @@ import './Card.css';
 function Card({item, onScanCard, }) {
 
   const [hiddenProducts,setHiddenProducts]= React.useState(true);
-  const [itemScan,setItemScan]= React.useState(true);
 
   const tagCardClass = `card__tag ${item.tag ? "card__tag_active" : ""}`;
   const countContent = item.scan===0 ? `${item.count} шт.` : `${item.scan} из ${item.count} шт.`;
-  const countCardClass = `card__count conteiner ${item.full ? "card__count_active" : ""}`;
   const progressCardClass = `progress-bar__subtitle ${item.full ? "progress-bar__subtitle_active" : ""}`;
 
   const hiddenProductsClass = `card__conteiner ${hiddenProducts ? "card__conteiner_hidden" : ""}`;
   const progressColor = `${Math.floor((100 / item.count) * item.scan)}%`;  
   
-  function handleScanProduct() {
-    console.log()
-    onScanCard(item,item.barcode);
+  function handleScanProduct(index) {
+    //console.log(index)
+    onScanCard(item,index);
   };
 
   function openHiddenProducts() {
@@ -26,7 +24,8 @@ function Card({item, onScanCard, }) {
 
   return (
     <li className="card" >
-      <div className="card__conteiner">
+
+      {item.count>1 && <div className="card__conteiner">
         <div className="card__info">
           <div className="card__img" style={{backgroundImage: `url(${item.img})`}} />
           <p className="card__description">{item.description}</p>
@@ -38,16 +37,18 @@ function Card({item, onScanCard, }) {
             </div>
             <p className={progressCardClass}>{countContent}</p>
             </div>
-        {item.count>1 ? <button className="card__number card__button-more" onClick={openHiddenProducts}>Развернуть</button> : <button className="card__number"  onClick={handleScanProduct} >{item.barcode[0].code}</button> }
-      </div>   
-      {item.barcode.map((el)=>
-        <div className={hiddenProductsClass} key={el.code}>
+        <button className="card__number card__button-more" onClick={openHiddenProducts}>Развернуть</button>
+      </div>   }
+
+      {item.barcode.map((el,index)=>
+        <div className={item.count>1 ? hiddenProductsClass : "card__conteiner"} key={el.code}>
         <div className="card__info">
+          {item.count===1 && <div className="card__img" style={{backgroundImage: `url(${item.img})`}} />}
           <p className="card__description">{item.description}</p>
           <p className={tagCardClass}>{item.tag}</p>
         </div>
-        <div className={countCardClass} >1 шт.</div> 
-        <button className='card__number' onClick={handleScanProduct} disabled={el.scan} >{el.code}</button>
+        <div className={`card__count conteiner ${el.scan ? "card__count_active" : ""}`} >1 шт.</div> 
+        <button className='card__number' onClick={()=>handleScanProduct(index)} disabled={el.scan} >{el.code}</button>
       </div> 
       )}
       
