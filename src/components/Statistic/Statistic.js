@@ -2,13 +2,15 @@ import '../../vendor/fonts/fonts.css'
 import './Statistic.css';
 
 
-function Statistic({handleOpenStatistic}) {
+function Statistic(props) {
+  const statisticClass = `statistic ${props.openStatictic ? 'statistic_opened' : ''} `;
+  
   return(
-    <section className='statistic'>
+    <section className={statisticClass}>
       <div className='statistic__popup'>
         <div className='statistic-navbar'>
           <h3  className='statistic-navbar__title'>Моя эффективность</h3>
-          <button  className='statistic-navbar__button conteiner' onClick={handleOpenStatistic}/>
+          <button  className='statistic-navbar__button conteiner' onClick={props.handleOpenStatistic}/>
         </div>
         <div className='statistic__container'>
         <div className='statistic-shift'>

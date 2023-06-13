@@ -13,10 +13,12 @@ function Main(props){
             <button className="content__button close-box">Закрыть коробку</button>
         </main>
         <Footer />
-        {props.openStatictic && <Statistic handleOpenStatistic={props.handleOpenStatistic} />}
+        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} />
         
     </>
   )
 };
 
 export default Main;
+
+//        {props.openStatictic && <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} />}

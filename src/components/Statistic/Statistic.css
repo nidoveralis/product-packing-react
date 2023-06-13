@@ -4,6 +4,19 @@
   height: 100vh;
   position: absolute;
   z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .2s, opacity .2s linear;
+  z-index: 3;
+  -webkit-transition: visibility .2s, opacity .2s linear;
+  -moz-transition: visibility .2s, opacity .2s linear;
+  -ms-transition: visibility .2s, opacity .2s linear;
+  -o-transition: visibility .2s, opacity .2s linear;
+}
+
+.statistic_opened {
+  visibility: visible;
+  opacity: 1;
 }
 
 .statistic::before {
