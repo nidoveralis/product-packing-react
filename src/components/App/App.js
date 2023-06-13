@@ -62,7 +62,7 @@ function App() {
   return (
       <Routes>
         <Route path="/" element={<FirstPage/>}/>
-        <Route path="/main" element={<Main/>}/>
+        <Route path="/main" element={<Main cards={cards} onScanCard={onScanCard}/>}/>
         <Route path="/packing" element={<PackingPage type="YME"/>}/>
         <Route path="/success" element={<Success/>}/>
       </Routes>
