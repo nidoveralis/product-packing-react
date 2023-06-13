@@ -6,14 +6,15 @@ import Statistic from '../Statistic/Statistic';
 function Main(props){
   return(
     <>
-        <Header />
+        <Header  handleOpenStatistic={props.handleOpenStatistic} />
         <main className="content">
           <button className="content__button have-problem">Есть проблема</button>
           <Products cards={props.cards} onScanCard={props.onScanCard} />
             <button className="content__button close-box">Закрыть коробку</button>
         </main>
         <Footer />
-        <Statistic />
+        {props.openStatictic && <Statistic handleOpenStatistic={props.handleOpenStatistic} />}
+        
     </>
   )
 };
