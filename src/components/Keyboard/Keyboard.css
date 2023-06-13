@@ -11,14 +11,6 @@
     position: relative;
 }
 
-/*.keyboard-button-back {*/
-/*    justify-content: flex-start;*/
-/*}*/
-
-/*.keyboard-button-change {*/
-/*    justify-content: flex-end;*/
-/*}*/
-
 .text-container {
     max-width: 100%;
     display: flex;
@@ -46,6 +38,24 @@
     text-decoration: none;
     position: absolute;
     left: 24px;
+}
+
+.edit__container {
+    display: flex;
+    gap: 12px;
+    position: absolute;
+    right: 56px;
+}
+
+.edit__icon {
+
+}
+
+.edit__text {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 500;
+
 }
 
 @media screen and (min-width: 1500px) {
