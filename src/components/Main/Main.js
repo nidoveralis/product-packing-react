@@ -4,7 +4,7 @@ import Products from '../Products/Products';
 
 function Main(props){
   return(
-    <>
+    <div className="page">
         <Header />
         <main className="content">
           <button className="content__button have-problem">Есть проблема</button>
@@ -12,7 +12,7 @@ function Main(props){
             <button className="content__button close-box">Закрыть коробку</button>
         </main>
         <Footer />
-    </>
+    </div>
   )
 };
 
