@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import Button from "../Button/Button";
 import Keyboard from "../Keyboard/Keyboard";
 import Footer from "../Footer/Footer";
+import ModalWindow from "../ModalWindow/ModalWindow";
 
 function FirstPage() {
     return (

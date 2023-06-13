@@ -6,6 +6,10 @@
   font-weight: 400;
 }
 
+.card-button-border {
+  border-bottom: none;
+}
+
 .card__conteiner {
   width: 1120px;
   display: flex;
