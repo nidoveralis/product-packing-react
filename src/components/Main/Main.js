@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import Products from "../Products/Products";
 import Button from "../Button/Button";
 import Keyboard from "../Keyboard/Keyboard";
-import FooterMy from "../FooterMy/FooterMy";
+import Footer from "../Footer/Footer";
 
 function Main(props){
   return(
@@ -14,7 +14,7 @@ function Main(props){
           <Button buttonText="Закрыть коробку"/>
         </main>
         <Keyboard/>
-        <FooterMy/>
+        <Footer/>
     </>
   )
 };

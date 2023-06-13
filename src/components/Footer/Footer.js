@@ -1,7 +1,7 @@
 import React from 'react';
-import './FooterMy.css';
+import './Footer.css';
 
-function FooterMy() {
+function Footer() {
     return (
         <footer className="footer">
             <div className="footer-text-container">
@@ -14,4 +14,4 @@ function FooterMy() {
     )
 }
 
-export default FooterMy;
+export default Footer;

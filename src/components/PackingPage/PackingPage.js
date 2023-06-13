@@ -2,7 +2,7 @@ import React from 'react';
 import "./PackingPage.css";
 import Header from "../Header/Header";
 import Keyboard from "../Keyboard/Keyboard";
-import FooterMy from "../FooterMy/FooterMy";
+import Footer from "../Footer/Footer";
 import Button from "../Button/Button";
 import iconBox from "../../images/icon__box.svg";
 
@@ -18,7 +18,7 @@ function PackingPage(props) {
                 </div>
             </section>
             <Keyboard button={<button className="button__back">Назад</button>}/>
-            <FooterMy/>
+            <Footer/>
         </>
     )
 }

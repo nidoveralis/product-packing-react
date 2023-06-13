@@ -3,7 +3,7 @@ import './FirstPage.css';
 import Header from "../Header/Header";
 import Button from "../Button/Button";
 import Keyboard from "../Keyboard/Keyboard";
-import FooterMy from "../FooterMy/FooterMy";
+import Footer from "../Footer/Footer";
 
 function FirstPage() {
     return (
@@ -18,7 +18,7 @@ function FirstPage() {
                 <Button buttonText="Сменить ячейку"/>
             </section>
             <Keyboard/>
-            <FooterMy/>
+            <Footer/>
         </>
     )
 }
