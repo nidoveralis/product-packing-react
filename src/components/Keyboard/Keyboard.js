@@ -10,6 +10,7 @@ function Keyboard(props) {
                 <img className="keyboard-button-text__icon" src={iconKeyboard} alt="Иконка клавиатуры"/>
                 <h2 className="keyboard-button__text">Ввести с клавиатуры</h2>
             </div>
+            {props.children}
         </button>
     )
 }

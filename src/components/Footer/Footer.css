@@ -4,11 +4,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 4px 24px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100vw;
     box-sizing: border-box;
+    align-self: flex-end;
 }
 
 .footer-text-container {

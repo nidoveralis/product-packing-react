@@ -3,7 +3,8 @@
     padding-top: 70px;
     padding-bottom: 70px;
     padding-left: 15px;
-    gap: 200px;
+    width: 70%;
+    justify-content: space-between;
 }
 
 .packing-container {
@@ -14,10 +15,11 @@
 }
 
 .packing__text {
-    max-width: 550px;
+    max-width: 600px;
     text-align: center;
     line-height: 1.2;
     font-size: 42px;
+    margin-bottom: 0;
 }
 
 .packing-type {
@@ -27,3 +29,28 @@
     padding: 3px 8px;
 }
 
+@media screen and (min-width: 1500px) {
+    .packing-block {
+        padding-top: 83px;
+        padding-bottom: 83px;
+        padding-left: 24px;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .packing__text {
+        max-width: 800px;
+        font-size: 56px;
+        line-height: 1.2;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .packing-type {
+        max-width: 800px;
+        font-size: 56px;
+        line-height: 1.2;
+        padding: 0 24px;
+        margin-top: 44px;
+    }
+}
