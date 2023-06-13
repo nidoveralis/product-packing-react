@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../vendor/normalize.css';
+import '../../vendor/fonts/fonts.css';
 import './App.css';
 import Main from '../Main/Main';
 import {Route, Routes} from "react-router-dom";
@@ -62,7 +64,7 @@ function App() {
   return (
       <Routes>
         <Route path="/" element={<FirstPage/>}/>
-        <Route path="/main" element={<Main/>}/>
+        <Route path="/main" element={<Main cards={cards} onScanCard={onScanCard}/>}/>
         <Route path="/packing" element={<PackingPage type="YME"/>}/>
         <Route path="/success" element={<Success/>}/>
       </Routes>
