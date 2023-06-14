@@ -1,6 +1,4 @@
 import React from 'react';
-import '../../vendor/normalize.css';
-import '../../vendor/fonts/fonts.css';
 import './App.css';
 import Main from '../Main/Main';
 import {Route, Routes} from "react-router-dom";
@@ -18,7 +16,11 @@ const cardsExemple = [
     count:1,
     img: img3,
     tag: 'Пузырчатая плёнка',
-    barcode: ['9234 5678 234 32'],
+    barcode: [
+      {
+        code: '9234 5678 234 32',
+        scan: false
+      }],
     scan: 0,
     full: false
   },
@@ -28,7 +30,19 @@ const cardsExemple = [
     count:3,
     img: img0,
     tag: '',
-    barcode: ['9234 5678 234 33','9234 5678 234 36','9234 5678 234 37'],
+    barcode: [
+      {
+        code: '9234 5678 234 33',
+        scan: false
+      },
+      {
+        code: '9234 5678 234 36',
+        scan: false
+      },
+      {
+        code: '9234 5678 234 37',
+        scan: false
+      }],
     scan: 0,
     full: false
   },
@@ -38,9 +52,17 @@ const cardsExemple = [
     count:2,
     img: img1,
     tag: '',
-    barcode: ['9234 5678 234 34','9234 5678 234 35'],
-    scan: 2,
-    full: true
+    barcode: [
+      {
+        code: '9234 5678 234 34',
+        scan: false
+      },
+      {
+        code: '9234 5678 234 35',
+        scan: true
+      }],
+    scan: 1,
+    full: false
   }
 ]
 
@@ -49,22 +71,31 @@ function App() {
   const [cards, setCards] = React.useState(cardsExemple);
 
   function onScanCard(item) {
+  const [openStatictic, setOpenStatictic] = React.useState(true);
+
+  function onScanCard(item,index) {
     ////отправить запрос api
-    console.log(item)
+    //console.log(item,index)
     if(!item.full){
       item.scan++;
-      sentCards.push(item.barcode);///доработать
+      sentCards.push(item.barcode[index].code);///доработать
+      item.barcode[index].scan=true;
       if(item.scan===item.barcode.length) {
         item.full=true;
       };
       setCards((state) => state.map((c) => c._id === item._id ? item : c));///доработать
     };
+    console.log(sentCards)
+  };
+
+  function handleOpenStatistic() {
+    setOpenStatictic(!openStatictic);
   };
 
   return (
       <Routes>
         <Route path="/" element={<FirstPage/>}/>
-        <Route path="/main" element={<Main cards={cards} onScanCard={onScanCard}/>}/>
+        <Route path="/main" element={<Main cards={cards} onScanCard={onScanCard} openStatictic={openStatictic} handleOpenStatistic={handleOpenStatistic}/>}/>
         <Route path="/packing" element={<PackingPage type="YME"/>}/>
         <Route path="/success" element={<Success/>}/>
       </Routes>

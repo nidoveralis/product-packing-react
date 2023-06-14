@@ -11,7 +11,7 @@ import logoSetting from '../../images/icon_setting.svg';
 import logoHelp from '../../images/icon_help.svg';
 import './Header.css';
 
-function Header() {
+function Header(props) {
 
   const [openMenu, setOpenMenu] = React.useState(false);
   const closeBoxClass = `${!openMenu ? 'user-menu_hidden' : ''} user-menu`;
@@ -21,7 +21,6 @@ function Header() {
 
   function handelCloseMenu() {
     setOpenMenu(false);
-    console.log('lkjhghjkl')
   };
 
   return(
@@ -42,7 +41,7 @@ function Header() {
       <div className="user">
         <div className="user__info">
           <p className="user__login">sof-natgemokee</p>
-          <div className="user__status conteiner">
+          <div className="user__status conteiner" onClick={props.handleOpenStatistic}>
             <div className="user__logo"></div>
             <p className="user__text">79%</p>
           </div>

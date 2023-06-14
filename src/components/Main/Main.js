@@ -3,12 +3,13 @@ import Products from "../Products/Products";
 import Button from "../Button/Button";
 import Keyboard from "../Keyboard/Keyboard";
 import Footer from "../Footer/Footer";
+import Statistic from '../Statistic/Statistic';
 import editIcon from "../../images/icon__edit.svg";
 
 function Main(props){
   return(
     <>
-        <Header />
+        <Header  handleOpenStatistic={props.handleOpenStatistic} />
         <main className="content">
           <Button buttonText="Есть проблема"/>
           <Products cards={props.cards} onScanCard={props.onScanCard} />
@@ -21,8 +22,12 @@ function Main(props){
             </div>
         </Keyboard>
         <Footer/>
+        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} />
     </>
   )
 };
 
 export default Main;
+
+
+//        {props.openStatictic && <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} />}
