@@ -70,7 +70,6 @@ function App() {
   const sentCards = [];
   const [cards, setCards] = React.useState(cardsExemple);
 
-  function onScanCard(item) {
   const [openStatictic, setOpenStatictic] = React.useState(true);
 
   function onScanCard(item,index) {
