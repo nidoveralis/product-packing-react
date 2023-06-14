@@ -3,8 +3,6 @@ import '../../vendor/normalize.css';
 import '../../vendor/fonts/fonts.css'
 import './App.css';
 import Main from '../Main/Main';
-import Success from '../Success/Success';
-
 
 import img0 from '../../images/img0.png'
 import img1 from '../../images/img1.png'
@@ -17,11 +15,7 @@ const cardsExemple = [
     count:1,
     img: img3,
     tag: 'Пузырчатая плёнка',
-    barcode: [
-      {
-        code: '9234 5678 234 32',
-        scan: false
-      }],
+    barcode: '9234 5678 234 32',
     scan: 0,
     full: false
   },
@@ -31,19 +25,7 @@ const cardsExemple = [
     count:3,
     img: img0,
     tag: '',
-    barcode: [
-      {
-        code: '9234 5678 234 33',
-        scan: false
-      },
-      {
-        code: '9234 5678 234 36',
-        scan: false
-      },
-      {
-        code: '9234 5678 234 37',
-        scan: false
-      }],
+    barcode: '9234 5678 234 33',
     scan: 0,
     full: false
   },
@@ -53,16 +35,8 @@ const cardsExemple = [
     count:2,
     img: img1,
     tag: '',
-    barcode: [
-      {
-        code: '9234 5678 234 34',
-        scan: false
-      },
-      {
-        code: '9234 5678 234 35',
-        scan: true
-      }],
-    scan: 1,
+    barcode: '9234 5678 234 34',
+    scan: 0,
     full: false
   }
 ]
@@ -72,19 +46,17 @@ function App() {
   const [cards, setCards] = React.useState(cardsExemple);
   const [openStatictic, setOpenStatictic] = React.useState(true);
   
-  function onScanCard(item,index) {
+  function onScanCard(item) {
     ////отправить запрос api
     //console.log(item,index)
     if(!item.full){
       item.scan++;
-      sentCards.push(item.barcode[index].code);///доработать
-      item.barcode[index].scan=true;
-      if(item.scan===item.barcode.length) {
+      sentCards.push(item.barcode);///доработать
+      if(item.scan===item.count) {
         item.full=true;
       };
       setCards((state) => state.map((c) => c._id === item._id ? item : c));///доработать
     };
-    console.log(sentCards)
   };
 
   function handleOpenStatistic() {
