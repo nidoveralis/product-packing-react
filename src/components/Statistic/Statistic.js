@@ -1,5 +1,6 @@
 import '../../vendor/fonts/fonts.css'
 import './Statistic.css';
+import {ReactComponent as Logo} from '../../images/el.svg'
 
 
 function Statistic(props) {
@@ -21,6 +22,7 @@ function Statistic(props) {
             <p className='statistic-shift__interest'>125 %</p>
             <p className='statistic-shift__count'>5 операций</p>
           </div>
+          <Logo className='statistic-shift__progress_corer' />
           <button className='statistic-shift__button'>Детализация смены</button>
         </div>
         <div className='statistic-shift'>
