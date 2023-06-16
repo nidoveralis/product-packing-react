@@ -1,0 +1,17 @@
+.progress {
+  width: 718px;
+  height: 428px;
+  position: absolute;
+  justify-content: space-between;
+  top: 310px;
+  display: flex;
+}
+
+.line-side {
+  stroke-dasharray: 280;
+  margin-top: 137px;
+}
+
+.line-medium {
+  stroke-dasharray: 560;
+}
