@@ -22,12 +22,11 @@ function Main(props){
             </div>
         </Keyboard>
         <Footer/>
-        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} />
+        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} statisticsShift={props.statisticsShift} staticsOperation={props.staticsOperation} />
     </>
   )
 };
 
 export default Main;
-
 
 //        {props.openStatictic && <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} />}

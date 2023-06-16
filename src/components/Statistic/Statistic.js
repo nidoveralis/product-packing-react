@@ -1,11 +1,12 @@
 import '../../vendor/fonts/fonts.css'
 import './Statistic.css';
-import {ReactComponent as Logo} from '../../images/el.svg'
-
+import React from 'react';
+import Progress from '../Progress/Progress';
 
 function Statistic(props) {
   const statisticClass = `statistic ${props.openStatictic ? 'statistic_opened' : ''} `;
-  
+
+
   return(
     <section className={statisticClass}>
       <div className='statistic__popup'>
@@ -16,13 +17,13 @@ function Statistic(props) {
         <div className='statistic__container'>
         <div className='statistic-shift'>
         <div className='statistic-shift__container'>
-          <h3 className='statistic-shift__title'>Текущая смена</h3>
+          <h3 className='statistic-shift__title statistic-shift__title_shift'>Текущая смена</h3>
         </div>
           <div className='statistic-shift__progress'>
             <p className='statistic-shift__interest'>125 %</p>
             <p className='statistic-shift__count'>5 операций</p>
           </div>
-          <Logo className='statistic-shift__progress_corer' />
+          <Progress statics={props.statisticsShift} />
           <button className='statistic-shift__button'>Детализация смены</button>
         </div>
         <div className='statistic-shift'>
@@ -31,9 +32,11 @@ function Statistic(props) {
             <p className='statistic-shift__time'>00:16</p>
           </div>
           <div className='statistic-shift__progress'>
+            
             <p className='statistic-shift__interest'>79 %</p>
             <p className='statistic-shift__count'>192 единицы</p>
           </div>
+          <Progress statics={props.staticsOperation} />
           <div  className='shift__goals'>
             <p  className='shift__text'>Упаковка КГТ</p>
             <p  className='shift__text'>Цель: 100 / час</p>
