@@ -104,7 +104,11 @@
   font-size: 52px;
   font-weight: 700;
   line-height: 52px;
-  margin: 32px 0;
+  margin: 32px 0 25px;
+}
+
+.statistic-shift__title_shift {
+  margin: 32px 0 13px;
 }
 
 .statistic-shift__time {
@@ -133,33 +137,9 @@
   justify-content: end;
   flex-direction: column;
   margin-bottom: 120px;
-  background-image: url('../../images/el.svg');
+  background-image: url('../../images/Ellipse\ 25\ \(1\)\ \(1\).svg');
   background-repeat: no-repeat;
-  stroke-dasharray: 55%;
 }
-
-.statistic-shift__progress_corer {
-  width: 720px;
-  height: 428px;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  flex-direction: column;
-  position: absolute;
-  bottom: 300px;
-
-  /*stroke-dashoffset: 100;*/
-}
-
-/*.statistic-shift__progress_corer * {
-  stroke: #000;
-}
-
-.statistic-shift__progress_corer * {
-  stroke: #000;
-  stroke-dashoffset: calc(100 - (100 * 75) / 100);
-  
-}*/
 
 .statistic-shift__interest {
   font-family: 'YandexSansDisplay', Arial, sans-serif;

@@ -41,12 +41,57 @@ const cardsExemple = [
   }
 ]
 
+/////возможно перенести в другой файл
+const widthSideLine = 280;
+const widthMediumLine = 560;
+const widthAllLines = 1120;
+
 function App() {
+  const scanCount = 125;//колличество сканов для статистики
+  const scanCount1 = 79;//колличество сканов для статистики текущей операции
   const sentCards = [];
-  const [cards, setCards] = React.useState(cardsExemple);
-  const [openStatictic, setOpenStatictic] = React.useState(true);
+  const [cards, setCards] = React.useState(cardsExemple);///массив с товарами
+  const [openStatictic, setOpenStatictic] = React.useState(false);///открывать статистику
+  const [statisticsShift, setStatisticsShift] = React.useState({1:0,2:0,3:0});
+  const [staticsOperation, setStatisticsOperation] = React.useState({1:0,2:0,3:0});
+
+
+  function calculateStatistics(count) {///считает статистику смены
+    if(count >= 100) { 
+      return {
+        1:0,
+        2:0,
+        3:0
+      }
+    }else if(count >= 76) {
+      return {
+        1:0,
+        2:0,
+        3:Math.floor(11.2*count-widthAllLines)
+      }
+    }else if(count <= 75 && count > 25) {
+      return {
+        1:0,
+        2:Math.floor(widthAllLines - widthSideLine -(11.2*count)),
+        3:widthSideLine
+      }
+    }else if(count <= 25 && count >= 0) {
+      return {
+        1:Math.floor(widthSideLine-(11.2*count)),
+        2:widthMediumLine,
+        3:widthSideLine
+      }
+    }
+  }
+
+  React.useEffect(()=>{
+    const a = calculateStatistics(scanCount);
+    const b = calculateStatistics(scanCount1);
+    setStatisticsShift(a);
+    setStatisticsOperation(b)
+  },[])
   
-  function onScanCard(item) {
+  function onScanCard(item) {////сканируе и отправляет на сервер
     ////отправить запрос api
     //console.log(item,index)
     if(!item.full){
@@ -65,7 +110,7 @@ function App() {
 
   return (
       <div className="page">
-        <Main cards={cards} onScanCard={onScanCard} openStatictic={openStatictic} handleOpenStatistic={handleOpenStatistic}/>
+        <Main cards={cards} onScanCard={onScanCard} openStatictic={openStatictic} handleOpenStatistic={handleOpenStatistic} statisticsShift={statisticsShift} staticsOperation={staticsOperation} />
       </div>
   );
 }

@@ -1,9 +1,13 @@
+import React from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Products from '../Products/Products';
 import Statistic from '../Statistic/Statistic';
 
 function Main(props){
+
+   
+
   return(
     <>
         <Header  handleOpenStatistic={props.handleOpenStatistic} />
@@ -13,7 +17,7 @@ function Main(props){
             <button className="content__button close-box">Закрыть коробку</button>
         </main>
         <Footer />
-        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} />
+        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} statisticsShift={props.statisticsShift} staticsOperation={props.staticsOperation} />
         
     </>
   )
