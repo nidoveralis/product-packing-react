@@ -104,7 +104,7 @@
   background-position: center;
   margin-bottom: 2px;
   border: none;
-  background-color: #fff;
+  background-color: transparent;
   position: absolute;
   z-index: 3;
   right: 24px;

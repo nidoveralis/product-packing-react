@@ -1,9 +1,14 @@
 .success {
-  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 83px 24px 195px;
+  align-items: center;
+}
+
+.success-img-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: auto auto 0;
 }
 
 .success__title {
@@ -20,4 +25,5 @@
   font-weight: 400;
   letter-spacing: -.037em;
   margin: 16px 0 97px;
+  text-align: center;
 }

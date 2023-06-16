@@ -1,12 +1,14 @@
 import React from 'react';
-import '../../vendor/normalize.css';
-import '../../vendor/fonts/fonts.css'
 import './App.css';
 import Main from '../Main/Main';
+import {Route, Routes} from "react-router-dom";
 
 import img0 from '../../images/img0.png'
 import img1 from '../../images/img1.png'
 import img3 from '../../images/img3.png'
+import FirstPage from "../FirstPage/FirstPage";
+import PackingPage from "../PackingPage/PackingPage";
+import Success from "../Success/Success";
 
 const cardsExemple = [
   {
@@ -109,9 +111,13 @@ function App() {
   };
 
   return (
-      <div className="page">
-        <Main cards={cards} onScanCard={onScanCard} openStatictic={openStatictic} handleOpenStatistic={handleOpenStatistic} statisticsShift={statisticsShift} staticsOperation={staticsOperation} />
-      </div>
+
+      <Routes>
+        <Route path="/" element={<FirstPage/>}/>
+        <Route path="/main" element={<Main cards={cards} onScanCard={onScanCard} openStatictic={openStatictic} handleOpenStatistic={handleOpenStatistic} statisticsShift={statisticsShift} staticsOperation={staticsOperation}/>}/>
+        <Route path="/packing" element={<PackingPage type="YME"/>}/>
+        <Route path="/success" element={<Success/>}/>
+      </Routes>
   );
 }
 

@@ -17,10 +17,8 @@ function Products({cards, onScanCard}) {
     <ul className="cards">
       {cards.map((item)=>
         <Card key={item._id} item={item} onScanCard={onScanCard} />
-      )}    
-
+      )}
     </ul>
-    
   </div>
 
   )
