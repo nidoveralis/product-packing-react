@@ -9,6 +9,7 @@ import img3 from '../../images/img3.png'
 import FirstPage from "../FirstPage/FirstPage";
 import PackingPage from "../PackingPage/PackingPage";
 import Success from "../Success/Success";
+import { api } from '../../utils/Api';
 
 const cardsExemple = [
   {
@@ -93,7 +94,10 @@ function App() {
     const b = calculateStatistics(scanCount1);
     setStatisticsShift(a);
     setStatisticsOperation(b)
-    console.log(a,b)
+  },[])
+
+  React.useEffect(()=>{
+    api.submitBox("order3").then(res=>console.log(res))
   },[])
   
   function onScanCard(item) {////сканируе и отправляет на сервер
