@@ -10,7 +10,7 @@ function Main(props){
 
   return(
     <>
-        <Header  handleOpenStatistic={props.handleOpenStatistic} />
+        <Header  handleOpenStatistic={props.handleOpenStatistic} scanCount={props.scanCount} />
         <main className="content">
           <Button buttonText="Есть проблема"/>
           <Products cards={props.cards} onScanCard={props.onScanCard} />

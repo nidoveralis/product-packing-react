@@ -34,8 +34,8 @@
   position: absolute;
   z-index: 4;
   background-color: #fff;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   height: calc(100vh - 28px);
 }
 
@@ -74,7 +74,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 936px;
+  height: 100%;
+  background-color: #fff;
 }
 
 .statistic-shift {
@@ -97,7 +98,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .statistic-shift__title {
@@ -126,20 +126,21 @@
   position: absolute;
   border-radius: 24px;
   right: 182px;
-  top: 160px;
 }
 
 .statistic-shift__progress {
   font-family: 'YandexSansDisplay', Arial, sans-serif;
-  width: 720px;
+  width: 100%;
   height: 428px;
   display: flex;
   align-items: center;
   justify-content: end;
   flex-direction: column;
-  margin-bottom: 120px;
+  margin-bottom: 110px;
   background-image: url('../../images/Ellipse\ 25\ \(1\)\ \(1\).svg');
   background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .statistic-shift__info {
@@ -176,7 +177,7 @@
   font-size: 44px;
   font-weight: 400;
   line-height: 46px;
-  margin: 1px 0px 12px 5px;
+  margin: 2px 0px 19px 2px;
   letter-spacing: -.04em;
 }
 
@@ -194,7 +195,7 @@
   font-weight: 500;
   line-height: 31px;
   letter-spacing: -.02em;
-  margin-bottom: 17px;
+  margin-bottom: 27px;
   cursor: pointer;
 }
 
@@ -212,4 +213,16 @@
 
 .shift__text {
   margin: 32px 0;
+}
+
+@media screen and (min-width: 1310px) {
+  .statistic-shift__time::after {
+    top: 160px;
+  }
+}
+
+@media screen and (max-width: 1309px) {
+  .statistic-shift__time::after {
+    top: 183px;
+  }
 }

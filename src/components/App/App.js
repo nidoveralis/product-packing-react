@@ -121,7 +121,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<FirstPage/>}/>
-        <Route path="/main" element={<Main cards={cards} onScanCard={onScanCard} openStatictic={openStatictic} handleOpenStatistic={handleOpenStatistic} statisticsShift={statisticsShift} staticsOperation={staticsOperation} scanCount1={scanCount1} />}/>
+        <Route path="/main" element={<Main cards={cards} onScanCard={onScanCard} openStatictic={openStatictic} handleOpenStatistic={handleOpenStatistic} statisticsShift={statisticsShift} staticsOperation={staticsOperation} scanCount={scanCount} scanCount1={scanCount1} />}/>
         <Route path="/packing" element={<PackingPage type="YME"/>}/>
         <Route path="/success" element={<Success/>}/>
       </Routes>

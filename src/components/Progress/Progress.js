@@ -6,9 +6,9 @@ import {ReactComponent as StatisticLineEnd} from '../../images/el3.svg'
 function Progress(props) {
   return(
     <div className='progress'>
-      <StatisticLineStart className='line-side' style={{strokeDashoffset:props.statics[1]}} />
+      <StatisticLineStart className='line-side line-side_left' style={{strokeDashoffset:props.statics[1]}} />
       <StatisticLineMedium className='line-medium' style={{strokeDashoffset:props.statics[2]}} />
-      <StatisticLineEnd className='line-side' style={{strokeDashoffset:props.statics[3]}} />
+      <StatisticLineEnd className='line-side line-side_right' style={{strokeDashoffset:props.statics[3]}} />
     </div>
 
   )
