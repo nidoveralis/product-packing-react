@@ -8,8 +8,6 @@ import editIcon from "../../images/icon__edit.svg";
 
 function Main(props){
 
-   
-
   return(
     <>
         <Header  handleOpenStatistic={props.handleOpenStatistic} />
@@ -25,7 +23,7 @@ function Main(props){
             </div>
         </Keyboard>
         <Footer/>
-        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} />
+        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} statisticsShift={props.statisticsShift} staticsOperation={props.staticsOperation} scanCount1={props.scanCount1}  />
     </>
   )
 };

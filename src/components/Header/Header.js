@@ -40,7 +40,7 @@ function Header(props) {
       
       <div className="user">
         <div className="user__info">
-          <p className="user__login">sof-natgemokee</p>
+          <p className="user__login">login</p>
           <div className="user__status conteiner" onClick={props.handleOpenStatistic}>
             <div className="user__logo"></div>
             <p className="user__text">79%</p>

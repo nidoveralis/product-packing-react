@@ -93,6 +93,7 @@
   align-items: center;
   color: #fff;
   padding: 12px 24px;
+  cursor: pointer;
 }
 
 .user__setting {
@@ -113,7 +114,7 @@
 .user__logo {
   width: 24px;
   height: 24px;
-  background-image: url("../../images/icon__turbo.svg");
+  background-image: url("../../images/icon_scan_white.svg");
   background-repeat: no-repeat;
   margin-right: 10px;
 }

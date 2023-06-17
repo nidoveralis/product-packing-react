@@ -43,14 +43,16 @@ const cardsExemple = [
   }
 ]
 
+const zaSmenu = 725;
+
 /////возможно перенести в другой файл
 const widthSideLine = 280;
 const widthMediumLine = 560;
 const widthAllLines = 1120;
 
 function App() {
-  const scanCount = 125;//колличество сканов для статистики
-  const scanCount1 = 79;//колличество сканов для статистики текущей операции
+  const scanCount = Math.floor(zaSmenu * 100 / 1100);//колличество сканов для статистики
+  const scanCount1 = 110;//колличество сканов для статистики текущей операции
   const sentCards = [];
   const [cards, setCards] = React.useState(cardsExemple);///массив с товарами
   const [openStatictic, setOpenStatictic] = React.useState(false);///открывать статистику
@@ -91,6 +93,7 @@ function App() {
     const b = calculateStatistics(scanCount1);
     setStatisticsShift(a);
     setStatisticsOperation(b)
+    console.log(a,b)
   },[])
   
   function onScanCard(item) {////сканируе и отправляет на сервер
@@ -114,7 +117,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<FirstPage/>}/>
-        <Route path="/main" element={<Main cards={cards} onScanCard={onScanCard} openStatictic={openStatictic} handleOpenStatistic={handleOpenStatistic} statisticsShift={statisticsShift} staticsOperation={staticsOperation}/>}/>
+        <Route path="/main" element={<Main cards={cards} onScanCard={onScanCard} openStatictic={openStatictic} handleOpenStatistic={handleOpenStatistic} statisticsShift={statisticsShift} staticsOperation={staticsOperation} scanCount1={scanCount1} />}/>
         <Route path="/packing" element={<PackingPage type="YME"/>}/>
         <Route path="/success" element={<Success/>}/>
       </Routes>
