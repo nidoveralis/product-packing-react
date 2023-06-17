@@ -1,6 +1,7 @@
 .products {
   text-align: center;
   margin-bottom: auto;
+  width: 63%;
 }
 
 .products__title {
@@ -42,4 +43,14 @@
 .cards {
   margin-top: 32px;
   padding: 0;
+}
+
+@media screen and (min-width: 1576px) {
+
+}
+
+@media screen and (max-width: 1575px) {
+  /*.card__info {
+    width: 575px;
+  }*/
 }

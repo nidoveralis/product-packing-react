@@ -97,7 +97,7 @@ function App() {
   },[])
 
   React.useEffect(()=>{
-    api.submitBox("order3").then(res=>console.log(res))
+    api.submitBox("order3").then(res=>console.log(res)).catch(err=>console.log(err))
   },[])
   
   function onScanCard(item) {////сканируе и отправляет на сервер
