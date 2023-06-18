@@ -125,12 +125,12 @@
 .progress-bar__conteiner {
   width: 100%;
   height: 100%;
-  background-color: rgba(243, 240, 233, 0.5);
 }
 
-.progress-bar__fill {
-  height: 100%;
-  background-color: #2AAD2E;
+.progress-bar__cont  {
+  background-color: rgba(243, 240, 233, 0.5);
+  width: 77px;
+  height: 47px;
 }
 
 .progress-bar__subtitle {

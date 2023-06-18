@@ -1,6 +1,6 @@
 import React from 'react';
 import './Card.css';
-import CardItem from '../App/CardItem/CardItem';
+import CardItem from '../CardItem/CardItem';
 
 
 function Card({item, onScanCard, className }) {
@@ -11,6 +11,7 @@ function Card({item, onScanCard, className }) {
   const countContent = item.scan===0 ? `${item.count} шт.` : `${item.scan} из ${item.count} шт.`;
   const progressCardClass = `progress-bar__subtitle ${item.full ? "progress-bar__subtitle_active" : ""}`;
   const progressColor = `${Math.floor((100 / item.count) * item.scan)}%`;
+  const progressGradient = `linear-gradient(to right, #2AAD2E ${progressColor},#E8E8E8 ${progressColor})`
   const hiddenProductsClass = `card__conteiner ${item.count===1 ? "card__conteiner_hidden" : ""}`;
 
   function openHiddenProducts() {
@@ -30,9 +31,7 @@ function Card({item, onScanCard, className }) {
             <p className={tagCardClass}>{item.tag}</p>
           </div>
           <div className="progress-bar">
-            <div className="progress-bar__conteiner conteiner">
-              <div className="progress-bar__fill conteiner" style={{width: progressColor, opacity: progressColor }}></div>
-            </div>
+            {item.scan>0 ? <div className="progress-bar__conteiner conteiner" style={{background: progressGradient, opacity: progressColor}} /> : <div className="progress-bar__cont conteiner" /> }
             <p className={progressCardClass}>{countContent}</p>
           </div>
           <button className="card__number card__button-more" onClick={openHiddenProducts}>Развернуть</button>

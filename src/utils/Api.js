@@ -4,7 +4,7 @@ class Api {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     };
-    this._baseUrl = 'http://localhost:8001';
+    this._baseUrl = 'http://127.0.0.1';
   }
 
   _getResponseData(res) {
@@ -15,7 +15,7 @@ class Api {
   }
 
   submitBox(data) {
-    return fetch(`${this._baseUrl}/v1`, {
+    return fetch(`${this._baseUrl}/front-pull/v1/`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
