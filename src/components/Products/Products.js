@@ -7,8 +7,6 @@ function Products({cards, onScanCard,packageType,visible}) {
   
   const classItemPack = `products__list-item products__list-item_pack conteiner ${visible ? '' : 'products_hidden'} `;
 
-console.log(THEME_PACKAGE[packageType].name)
-//packageType
   return(
     <div className="products">
     <h5 className="products__title">Сканируйте товары из ячейки</h5>

@@ -43,7 +43,7 @@ function Header(props) {
       <div className="user">
         <button className={userInfoClass}  onClick={props.handleOpenStatistic}>
           <p className="user__login">login</p>
-          <div className="user__status conteiner" style={{background: `linear-gradient(to right, ${props.userStatusTheme.progressColor} ${props.scanCount}%,#E8E8E8 ${props.scanCount}%)`}} >
+          <div className="user__status conteiner" style={{background: `linear-gradient(to right, ${props.userStatusTheme.progressColor} ${props.scanInOneHour}%,#E8E8E8 ${props.scanInOneHour}%)`}} >
             <div className="user__logo" />
             <p className="user__text">79</p>
             <div className="user__text user-time">15:59</div>

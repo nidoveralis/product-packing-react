@@ -16,6 +16,9 @@ function Main(props){
           handleOpenStatistic={props.handleOpenStatistic} 
           scanCount={props.scanCount}
           userStatusTheme={props.userStatusTheme}
+          scanInOneHour={props.scanInOneHour}
+          second={props.second}
+          minute={props.minute}
           />
         <main className="content">
           <Button buttonText="Есть проблема"/>
@@ -29,7 +32,7 @@ function Main(props){
             </div>
         </Keyboard>
         <Footer/>
-        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} statisticsShift={props.statisticsShift} staticsOperation={props.staticsOperation} scanInOneHour={props.scanInOneHour}  />
+        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} statisticsShift={props.statisticsShift} staticsOperation={props.staticsOperation} scanInOneHour={props.scanInOneHour} second={props.second} minute={props.minute} />
     </>
   )
 };

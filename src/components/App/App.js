@@ -64,7 +64,7 @@ const cardsExemple = [
     cancel: false
   },
   {
-    _id:3,
+    _id:4,
     description:'Модуль с Яндекс.ТВ - Смарт.ТВ с Алисой [4K], черный',
     count:1,
     img: img4,
@@ -80,7 +80,7 @@ const cardsExemple = [
 
 
 
-const packageType = 'YME'
+const packageType = 'MYF'
 
 const zaSmenu = 725;
 
@@ -89,7 +89,7 @@ const zaSmenu = 725;
 
 function App() {
   const scanCount = Math.floor(zaSmenu * 100 / 1100);//колличество сканов для статистики
-  const scanInOneHour = 110;//колличество сканов за час для статистики текущей операции
+  const scanInOneHour = 60;//колличество сканов за час для статистики текущей операции
   const sentCards = [];
   const [cards, setCards] = React.useState(cardsExemple);///массив с товарами
   const [openStatictic, setOpenStatictic] = React.useState(false);///открывать статистику
@@ -97,6 +97,9 @@ function App() {
   const [staticsOperation, setStatisticsOperation] = React.useState({1:0,2:0,3:0});
   const [userStatusTheme, setUserStatusTheme] = React.useState(THEME_BUTTON.default);
   const [visible,setVisible] = React.useState(false);
+  const [timer,setTimer] = React.useState(false);
+  const [minute,setMinute] = React.useState(60);
+  const [second,setSecond] = React.useState(0);
 
   function calculateStatistics(count) {///считает статистику смены
     if(count >= 100) { 
@@ -129,6 +132,7 @@ function App() {
   React.useEffect(()=>{
    ///// api.submitBox("order3").then(res=>console.log(res)).catch(err=>console.log(err))
   },[])
+
   
   function onScanCard(item) {////сканируе и отправляет на сервер
     setVisible(true);
@@ -144,6 +148,7 @@ function App() {
 
   function handleOpenStatistic() {
     setOpenStatictic(!openStatictic);
+    setTimer(true);
   };
 
   function decideThemeButton() {
@@ -166,6 +171,21 @@ function App() {
     decideThemeButton();
   },[]);
 
+  React.useEffect(() => {
+    if (second > 0 && timer) {
+      setTimeout(setSecond, 1000, second - 1);
+    } else {
+      setTimer(false);
+    }
+    if(second===0) {
+      setSecond(59);
+      setMinute(minute-1);
+    }
+    if(second===0 && minute===0) {
+      setTimer(false);
+    }
+  }, [ second, timer ]);
+
   return (
 
       <Routes>
@@ -181,9 +201,21 @@ function App() {
           userStatusTheme={userStatusTheme}
           packageType={packageType}
           visible={visible}
+          second={second}
+          minute={minute}
           />}/>
-        <Route path="/packing" element={<PackingPage type="YME"/>}/>
-        <Route path="/success" element={<Success/>}/>
+        <Route path="/packing" element={<PackingPage 
+          type={packageType}           
+          handleOpenStatistic={handleOpenStatistic} 
+          scanCount={scanCount}
+          userStatusTheme={userStatusTheme}
+          scanInOneHour={scanInOneHour} />}/>
+        <Route path="/success" element={<Success
+          handleOpenStatistic={handleOpenStatistic} 
+          scanCount={scanCount}
+          userStatusTheme={userStatusTheme}
+          scanInOneHour={scanInOneHour}
+        />}/>
       </Routes>
   );
 }

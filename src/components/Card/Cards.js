@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.css';
 import CardItem from '../CardItem/CardItem';
-
+import Icon from '../../images/icon_brand.svg';
 
 function Card({item, onScanCard, className }) {
 
@@ -30,7 +30,10 @@ function Card({item, onScanCard, className }) {
           <div className="card__info">
             <div className="card__img" style={{backgroundImage: `url(${item.img})`}} />
             <p className="card__description">{item.description}</p>
-            <p className={brandCardClass}>Нужно сканировать марку</p>
+            <button className={brandCardClass}>
+            <img src={Icon} alt='Иконка штрихкода' className="card__icon" />
+            <p>Нужно сканировать марку</p>
+            </button>            
             <p className={tagCardClass}>{item.tag}</p>
           </div>
           <div className="progress-bar">

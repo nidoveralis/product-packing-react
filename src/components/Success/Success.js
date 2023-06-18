@@ -4,10 +4,15 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Button from "../Button/Button";
 
-function Success() {
+function Success(props) {
     return (
         <>
-            <Header/>
+            <Header
+                handleOpenStatistic={props.handleOpenStatistic} 
+                scanCount={props.scanCount}
+                userStatusTheme={props.userStatusTheme}
+                scanInOneHour={props.scanInOneHour}
+            />
             <div className="success">
                 <Button buttonText="Есть проблема"/>
                 <div className="success-img-container">
