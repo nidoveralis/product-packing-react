@@ -1,4 +1,4 @@
-.page {
+#root {
   font-family: 'YandexSansText', Arial, sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -21,7 +21,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin: 53px 25px 36px;
+  margin: 53px 25px 20px;
 }
 
 .content__button {
@@ -47,4 +47,8 @@
 .have-problem {
   background-color: #F3F0E9;
   padding: 0 4px 0 0;
+}
+
+.hidden {
+  visibility: hidden;
 }

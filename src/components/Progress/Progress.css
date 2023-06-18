@@ -1,0 +1,86 @@
+.progress {
+  height: 428px;
+  position: absolute;
+  justify-content: space-between;
+  display: flex;
+}
+
+.line-side {
+  stroke-dasharray: 280;
+}
+
+.line-medium {
+  stroke-dasharray: 560;
+  height: 123px;
+
+}
+
+@media screen and (min-width: 1576px) {
+  .progress {
+    top: 317px;
+  }
+
+  .line-medium {
+    min-width: 499px;
+  }
+
+  .line-side {
+    max-height: 292px;
+    margin-top: 137px;
+  }
+
+  
+  .line-side_left {
+    margin-right: 10px;
+  }
+
+  .line-side_right {
+    margin-left: 10px;
+  }
+}
+
+
+@media screen and (max-width: 1575px) {
+  .line-medium {
+    max-width: 485px;
+  }
+
+  .line-side {
+    max-height: 272px;
+    margin-top: 131px;
+  }
+
+  
+  .line-side_left {
+    margin-right: 5px;
+  }
+
+  .line-side_right {
+    margin-left: 5px;
+  }
+}
+
+
+@media screen and (max-width: 1455px) {
+  .progress {
+    top: 322px;
+  }
+  .line-medium {
+    max-width: 465px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .progress {
+    top: 372px;
+  }
+  .line-medium {
+    max-width: 310px;
+  }
+  
+  .line-side {
+    max-height: 182px;
+    margin-top: 108px;
+    max-width: 62px;
+  }
+}

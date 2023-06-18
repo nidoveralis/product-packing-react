@@ -1,0 +1,36 @@
+.button {
+    border: none;
+    border-radius: 20px;
+    background-color: #F3F0E9;
+    padding: 0;
+    height: 600px;
+    width: 250px;
+    margin: 0;
+}
+
+.button_active {
+    background-color: #FED42B;
+}
+
+.button__text {
+    font-size: 35px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.16;
+    text-align: center;
+}
+
+@media screen and (min-width: 1500px) {
+    .button {
+        max-width: 296px;
+        border-radius: 24px;
+        height: 660px;
+        width: 295px;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .button__text {
+        font-size: 48px;
+    }
+}

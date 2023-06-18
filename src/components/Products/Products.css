@@ -1,15 +1,17 @@
 .products {
   text-align: center;
   margin-bottom: auto;
+  width: 63%;
 }
 
 .products__title {
   font-size: 48px;
   margin: 0;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
 }
 
 .products__subtitle {
+  font-family: 'YandexSansDisplay', Arial, sans-serif;
   font-size: 72px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -36,9 +38,14 @@
 
 .products__list-item_pack {
   color: #fff;
-  background-color: #D47812;
+  display: block;
 }
 
 .cards {
   margin-top: 32px;
+  padding: 0;
+}
+
+.products_hidden {
+  display: none;
 }

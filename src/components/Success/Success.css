@@ -1,0 +1,29 @@
+.success {
+  max-width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 83px 24px 195px;
+  align-items: center;
+}
+
+.success-img-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.success__title {
+  font-size: 56px;
+  line-height: 68px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin: 67px auto 0;
+}
+
+.success__subtitle {
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+  letter-spacing: -.037em;
+  margin: 16px 0 97px;
+  text-align: center;
+}
