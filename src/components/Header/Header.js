@@ -15,8 +15,9 @@ function Header(props) {
 
   const [openMenu, setOpenMenu] = React.useState(false);
   const closeBoxClass = `${!openMenu ? 'user-menu_hidden' : ''} user-menu`;
+  console.log(props.userStatusTheme)
   const userInfoClass = `user__info ${props.userStatusTheme.name}`;
-  
+
   function handelOpenMenu() {
     setOpenMenu(true);
   };
@@ -39,7 +40,7 @@ function Header(props) {
       </div>
 
       <h3 className="header__title">Упаковка</h3>
-      
+
       <div className="user">
         <button className={userInfoClass}  onClick={props.handleOpenStatistic}>
           <p className="user__login">login</p>
