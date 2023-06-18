@@ -55,9 +55,41 @@ const THEME_PACKAGE = {
     name:'Сейф-пакет MYE',
     color:'#D14962'
   }
-}
+};
+
+const THEME_BUTTON = {
+  default:{
+    progressColor: '#FED42B',
+    name: 'default',
+  },
+  bad:{
+    progressColor: '#FF5639',
+    name: 'bad'     
+  },
+  normal:{
+    progressColor: '#FFA12A',
+    name: 'normal'
+    
+  },
+  good:{
+    progressColor: '#2AAD2E',
+    name: 'good'
+  },
+  excellent:{
+    progressColor: '#8923D1',
+    name: 'excellent'
+  }
+};
+
+const WIDTH_SIDE_LINE = 280;
+const WIDTH_MEDIUM_LINE = 560;
+const WIDTH_ALL_LINE = 1120;
 
 
 export {
-  THEME_PACKAGE
+  THEME_PACKAGE,
+  THEME_BUTTON,
+  WIDTH_SIDE_LINE,
+  WIDTH_MEDIUM_LINE,
+  WIDTH_ALL_LINE
 }
