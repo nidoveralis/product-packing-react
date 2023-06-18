@@ -15,7 +15,6 @@ function Header(props) {
 
   const [openMenu, setOpenMenu] = React.useState(false);
   const closeBoxClass = `${!openMenu ? 'user-menu_hidden' : ''} user-menu`;
-  console.log(props.userStatusTheme)
   const userInfoClass = `user__info ${props.userStatusTheme.name}`;
 
   function handelOpenMenu() {
