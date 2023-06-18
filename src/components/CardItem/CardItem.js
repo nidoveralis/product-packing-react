@@ -6,7 +6,7 @@ function CardItem({item, handleScanProduct, hiddenProducts}) {
 
   const tagCardClass = `card__tag ${item.tag ? "card__tag_active" : ""}`;
   const scanCardClass = `card__count conteiner ${scan ? "card__count_active" : ""}`;
-  const hiddenProductsClass = `card__conteiner ${hiddenProducts ? "card__conteiner_hidden" : ""}`;
+  const hiddenProductsClass = `card__conteiner ${hiddenProducts ? "conteiner_hidden" : ""}`;
 
   function handleClickProduct() {
     setScan(true)

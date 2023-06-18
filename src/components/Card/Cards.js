@@ -12,7 +12,7 @@ function Card({item, onScanCard, className }) {
   const progressCardClass = `progress-bar__subtitle ${item.full ? "progress-bar__subtitle_active" : ""}`;
   const progressColor = `${Math.floor((100 / item.count) * item.scan)}%`;
   const progressGradient = `linear-gradient(to right, #2AAD2E ${progressColor},#E8E8E8 ${progressColor})`
-  const hiddenProductsClass = `card__conteiner ${item.count===1 ? "card__conteiner_hidden" : ""}`;
+  const hiddenProductsClass = `card__conteiner ${item.count===1 ? "conteiner_hidden" : ""}`;
 
   function openHiddenProducts() {
     setHiddenProducts(!hiddenProducts);

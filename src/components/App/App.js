@@ -44,6 +44,33 @@ const cardsExemple = [
   }
 ]
 
+
+const theme = {
+  default:{
+    progressColor: '#FED42B',
+    name: 'default',
+  },
+  bad:{
+    progressColor: '#FF5639',
+    name: 'bad'     
+  },
+  normal:{
+    progressColor: '#FFA12A',
+    name: 'normal'
+    
+  },
+  good:{
+    progressColor: '#2AAD2E',
+    name: 'good'
+  },
+  excellent:{
+    progressColor: '#8923D1',
+    name: 'excellent'
+  }
+};
+
+const packageType = 'MYE'
+
 const zaSmenu = 725;
 
 /////возможно перенести в другой файл
@@ -51,15 +78,17 @@ const widthSideLine = 280;
 const widthMediumLine = 560;
 const widthAllLines = 1120;
 
+
 function App() {
   const scanCount = Math.floor(zaSmenu * 100 / 1100);//колличество сканов для статистики
-  const scanCount1 = 110;//колличество сканов для статистики текущей операции
+  const scanInOneHour = 110;//колличество сканов за час для статистики текущей операции
   const sentCards = [];
   const [cards, setCards] = React.useState(cardsExemple);///массив с товарами
   const [openStatictic, setOpenStatictic] = React.useState(false);///открывать статистику
   const [statisticsShift, setStatisticsShift] = React.useState({1:0,2:0,3:0});
   const [staticsOperation, setStatisticsOperation] = React.useState({1:0,2:0,3:0});
-
+  const [userStatusTheme, setUserStatusTheme] = React.useState(theme.default);
+  const [visible,setVisible] = React.useState(false);
 
   function calculateStatistics(count) {///считает статистику смены
     if(count >= 100) { 
@@ -90,26 +119,18 @@ function App() {
   }
 
   React.useEffect(()=>{
-    const a = calculateStatistics(scanCount);
-    const b = calculateStatistics(scanCount1);
-    setStatisticsShift(a);
-    setStatisticsOperation(b)
-  },[])
-
-  React.useEffect(()=>{
-    api.submitBox("order3").then(res=>console.log(res)).catch(err=>console.log(err))
+   ///// api.submitBox("order3").then(res=>console.log(res)).catch(err=>console.log(err))
   },[])
   
   function onScanCard(item) {////сканируе и отправляет на сервер
-    ////отправить запрос api
-    //console.log(item,index)
+    setVisible(true);
     if(!item.full){
       item.scan++;
-      sentCards.push(item.barcode);///доработать
+      sentCards.push(item.barcode);
       if(item.scan===item.count) {
         item.full=true;
       };
-      setCards((state) => state.map((c) => c._id === item._id ? item : c));///доработать
+      setCards((state) => state.map((c) => c._id === item._id ? item : c));
     };
   };
 
@@ -117,11 +138,38 @@ function App() {
     setOpenStatictic(!openStatictic);
   };
 
+  React.useEffect(()=>{
+    const a = calculateStatistics(scanCount);
+    const b = calculateStatistics(scanInOneHour);
+    setStatisticsShift(a);
+    setStatisticsOperation(b);
+    if(scanInOneHour<=80 && scanInOneHour>=60) {
+      setUserStatusTheme(theme.normal);
+    }else if(scanInOneHour<=60) {
+      setUserStatusTheme(theme.bad);
+    }else if(scanInOneHour===100) {
+      setUserStatusTheme(theme.good);
+    }else if(scanInOneHour>100) {
+      setUserStatusTheme(theme.excellent);
+    }
+  },[]);
+
   return (
 
       <Routes>
         <Route path="/" element={<FirstPage/>}/>
-        <Route path="/main" element={<Main cards={cards} onScanCard={onScanCard} openStatictic={openStatictic} handleOpenStatistic={handleOpenStatistic} statisticsShift={statisticsShift} staticsOperation={staticsOperation} scanCount={scanCount} scanCount1={scanCount1} />}/>
+        <Route path="/main" element={<Main 
+          cards={cards} onScanCard={onScanCard} 
+          openStatictic={openStatictic} 
+          handleOpenStatistic={handleOpenStatistic} 
+          statisticsShift={statisticsShift} 
+          staticsOperation={staticsOperation} 
+          scanCount={scanCount} 
+          scanInOneHour={scanInOneHour} 
+          userStatusTheme={userStatusTheme}
+          packageType={packageType}
+          visible={visible}
+          />}/>
         <Route path="/packing" element={<PackingPage type="YME"/>}/>
         <Route path="/success" element={<Success/>}/>
       </Routes>

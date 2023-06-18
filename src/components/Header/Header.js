@@ -15,6 +15,7 @@ function Header(props) {
 
   const [openMenu, setOpenMenu] = React.useState(false);
   const closeBoxClass = `${!openMenu ? 'user-menu_hidden' : ''} user-menu`;
+  const userInfoClass = `user__info ${props.userStatusTheme.name}`;
   
   function handelOpenMenu() {
     setOpenMenu(true);
@@ -23,7 +24,6 @@ function Header(props) {
   function handelCloseMenu() {
     setOpenMenu(false);
   };
-  console.log(props.scanCount)
 
   return(
     <header className="header">
@@ -41,10 +41,10 @@ function Header(props) {
       <h3 className="header__title">Упаковка</h3>
       
       <div className="user">
-        <button className="user__info"  onClick={props.handleOpenStatistic}>
+        <button className={userInfoClass}  onClick={props.handleOpenStatistic}>
           <p className="user__login">login</p>
-          <div className="user__status conteiner" style={{background: `linear-gradient(to right, #2AAD2E ${props.scanCount}%,#E8E8E8 ${props.scanCount}%)`}} >
-            <div className="user__logo"></div>
+          <div className="user__status conteiner" style={{background: `linear-gradient(to right, ${props.userStatusTheme.progressColor} ${props.scanCount}%,#E8E8E8 ${props.scanCount}%)`}} >
+            <div className="user__logo" />
             <p className="user__text">79</p>
             <div className="user__text user-time">15:59</div>
           </div>

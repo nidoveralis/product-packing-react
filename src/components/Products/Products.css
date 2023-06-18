@@ -37,7 +37,7 @@
 
 .products__list-item_pack {
   color: #fff;
-  background-color: #D47812;
+  display: block;
 }
 
 .cards {
@@ -45,12 +45,6 @@
   padding: 0;
 }
 
-@media screen and (min-width: 1576px) {
-
-}
-
-@media screen and (max-width: 1575px) {
-  /*.card__info {
-    width: 575px;
-  }*/
+.products_hidden {
+  display: none;
 }

@@ -18,7 +18,7 @@
   padding: 25px 29px;
 }
 
-.card__conteiner_hidden {
+.conteiner_hidden {
   display: none;
 }
 
@@ -148,25 +148,8 @@
   }
 }
 
-
 @media screen and (max-width: 1575px) {
   .card__info {
     max-width: 590px;
   }
-}
-
-@media screen and (max-width: 1440px) {
-
-}
-
-@media screen and (max-width: 1080px) {
-
-}
-
-@media screen and (max-width: 720px) {
-
-}
-
-@media screen and (max-width: 480px) {
-
 }

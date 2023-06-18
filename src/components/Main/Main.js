@@ -8,13 +8,19 @@ import editIcon from "../../images/icon__edit.svg";
 
 function Main(props){
 
+  const buttonClass = props.visible ? '' :'hidden'
+
   return(
     <>
-        <Header  handleOpenStatistic={props.handleOpenStatistic} scanCount={props.scanCount} />
+        <Header  
+          handleOpenStatistic={props.handleOpenStatistic} 
+          scanCount={props.scanCount}
+          userStatusTheme={props.userStatusTheme}
+          />
         <main className="content">
           <Button buttonText="Есть проблема"/>
-          <Products cards={props.cards} onScanCard={props.onScanCard} />
-          <Button buttonText="Закрыть коробку"/>
+          <Products cards={props.cards} onScanCard={props.onScanCard} packageType={props.packageType} visible={props.visible} />
+          <Button buttonText="Закрыть коробку" buttonClass={buttonClass} />
         </main>
         <Keyboard>
             <div className="edit__container">
@@ -23,7 +29,7 @@ function Main(props){
             </div>
         </Keyboard>
         <Footer/>
-        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} statisticsShift={props.statisticsShift} staticsOperation={props.staticsOperation} scanCount1={props.scanCount1}  />
+        <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} statisticsShift={props.statisticsShift} staticsOperation={props.staticsOperation} scanInOneHour={props.scanInOneHour}  />
     </>
   )
 };

@@ -41,7 +41,7 @@ function Statistic(props) {
               <img className='statistic-shift__icon' src={ScanIcon}/>
               <p className='statistic-shift__text'>сканов</p>
             </div>
-            <p className='statistic-shift__interest'>{props.scanCount1}</p>
+            <p className='statistic-shift__interest'>{props.scanInOneHour}</p>
             <p className='statistic-shift__count'>за этот час</p>
           </div>
           <Progress statics={props.staticsOperation} />
