@@ -75,8 +75,30 @@
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
+.card__number-text {
+  margin: 0;
+}
+
+.card__number-img {
+  background-image: url("../../images/icon__path.svg");
+  background-repeat: no-repeat;
+  width: 19px;
+  height: 11px;
+  margin-left: 15px;
+}
+
+.card__number-img_active {
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+}
 
 .card__button-more {
   background-image: url("../../images/icon__path.svg");
@@ -91,14 +113,9 @@
 
 .card__tag {
   display: none;
-}
-
-.card__tag_active {
   grid-row: 2/3;
   grid-column: 2/3;
-  display: flex;
   align-items: center;
-  background-color: #E0EEFF;
   border-radius: 12px;
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
@@ -112,6 +129,17 @@
   margin: 0;
   letter-spacing: -.011em;
   height: 48px;
+}
+
+.card__tag_active {
+  background-color: #E0EEFF;
+  display: flex;
+  margin-top: 10px;
+}
+
+.card__brand {
+  background-color: #FFECCC;
+  display: flex;
 }
 
 .progress-bar {

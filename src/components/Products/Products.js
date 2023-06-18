@@ -11,7 +11,7 @@ console.log(THEME_PACKAGE[packageType].name)
 //packageType
   return(
     <div className="products">
-    <h1 className="products__title">Сканируйте товары из ячейки</h1>
+    <h5 className="products__title">Сканируйте товары из ячейки</h5>
     <h2 className="products__subtitle">B-09</h2>
       <ul className="products__list">
         <li className="products__list-item conteiner">6 товаров</li>

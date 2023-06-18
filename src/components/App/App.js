@@ -3,9 +3,11 @@ import './App.css';
 import Main from '../Main/Main';
 import {Route, Routes} from "react-router-dom";
 
-import img0 from '../../images/img0.png'
-import img1 from '../../images/img1.png'
-import img3 from '../../images/img3.png'
+import img0 from '../../images/img0.png';
+import img1 from '../../images/img1.png';
+import img2 from '../../images/img2.png';
+import img3 from '../../images/img3.png';
+import img4 from '../../images/img4.png';
 import FirstPage from "../FirstPage/FirstPage";
 import PackingPage from "../PackingPage/PackingPage";
 import Success from "../Success/Success";
@@ -19,9 +21,11 @@ const cardsExemple = [
     count:1,
     img: img3,
     tag: 'Пузырчатая плёнка',
+    brand: false,
     barcode: '9234 5678 234 32',
     scan: 0,
-    full: false
+    full: false,
+    cancel: false
   },
   {
     _id:1,
@@ -29,9 +33,11 @@ const cardsExemple = [
     count:3,
     img: img0,
     tag: '',
+    brand: false,
     barcode: '9234 5678 234 33',
     scan: 0,
-    full: false
+    full: false,
+    cancel: false
   },
   {
     _id:2,
@@ -39,16 +45,42 @@ const cardsExemple = [
     count:2,
     img: img1,
     tag: '',
+    brand: false,
     barcode: '9234 5678 234 34',
     scan: 0,
-    full: false
+    full: false,
+    cancel: false
+  },
+  {
+    _id:3,
+    description:'Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED',
+    count:1,
+    img: img2,
+    tag: 'Пузырчатая плёнка',
+    brand: true,
+    barcode: '9234 5678 234 34',
+    scan: 0,
+    full: false,
+    cancel: false
+  },
+  {
+    _id:3,
+    description:'Модуль с Яндекс.ТВ - Смарт.ТВ с Алисой [4K], черный',
+    count:1,
+    img: img4,
+    tag: '',
+    brand: false,
+    barcode: '9234 5678 234 34',
+    scan: 0,
+    full: false,
+    cancel: true
   }
 ]
 
 
 
 
-const packageType = 'MYE'
+const packageType = 'YME'
 
 const zaSmenu = 725;
 
@@ -123,8 +155,8 @@ function App() {
       setUserStatusTheme(THEME_BUTTON.good);
     }else if(scanInOneHour>100) {
       setUserStatusTheme(THEME_BUTTON.excellent);
-    }
-  }
+    };
+  };
 
   React.useEffect(()=>{
     const a = calculateStatistics(scanCount);
@@ -137,7 +169,7 @@ function App() {
   return (
 
       <Routes>
-        <Route path="/" element={<FirstPage/>}/>
+        <Route path="/" element={<FirstPage />}/>
         <Route path="/main" element={<Main 
           cards={cards} onScanCard={onScanCard} 
           openStatictic={openStatictic} 

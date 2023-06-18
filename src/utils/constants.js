@@ -92,4 +92,4 @@ export {
   WIDTH_SIDE_LINE,
   WIDTH_MEDIUM_LINE,
   WIDTH_ALL_LINE
-}
+};
