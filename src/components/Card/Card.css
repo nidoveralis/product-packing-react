@@ -11,23 +11,15 @@
 }
 
 .card__conteiner {
-  width: 1120px;
+
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding: 25px 29px;
 }
 
-.card__conteiner_hidden {
+.conteiner_hidden {
   display: none;
-}
-
-.card__button-more {
-  background-image: url("../../images/icon__path.svg");
-  background-repeat: no-repeat;
-  background-position: right;
-  padding-right: 33px;
 }
 
 .card__count {
@@ -68,7 +60,6 @@
 }
 
 .card__info {
-  width: 632px;
   max-height: 118px;
   display: grid;
   grid-template-columns: 142px auto;
@@ -79,10 +70,41 @@
   border: none;
   color: #245EEE;
   text-align: end;
-  margin-top: 12px;
-  width: 261px;
+  margin-top: 11px;
+  width: 200px;
   background-color: transparent;
   cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.card__number-text {
+  margin: 0;
+}
+
+.card__number-img {
+  background-image: url("../../images/icon__path.svg");
+  background-repeat: no-repeat;
+  width: 19px;
+  height: 11px;
+  margin-left: 15px;
+}
+
+.card__number-img_active {
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+}
+
+.card__button-more {
+  background-image: url("../../images/icon__path.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  padding-right: 33px;
 }
 
 .card__number:hover {
@@ -91,14 +113,9 @@
 
 .card__tag {
   display: none;
-}
-
-.card__tag_active {
   grid-row: 2/3;
   grid-column: 2/3;
-  display: flex;
   align-items: center;
-  background-color: #E0EEFF;
   border-radius: 12px;
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
@@ -114,6 +131,17 @@
   height: 48px;
 }
 
+.card__tag_active {
+  background-color: #E0EEFF;
+  display: flex;
+  margin-top: 10px;
+}
+
+.card__brand {
+  background-color: #FFECCC;
+  display: flex;
+}
+
 .progress-bar {
   height: 48px;
   width: 134px;
@@ -125,12 +153,12 @@
 .progress-bar__conteiner {
   width: 100%;
   height: 100%;
-  background-color: rgba(243, 240, 233, 0.5);
 }
 
-.progress-bar__fill {
-  height: 100%;
-  background-color: #2AAD2E;
+.progress-bar__cont  {
+  background-color: rgba(243, 240, 233, 0.5);
+  width: 77px;
+  height: 47px;
 }
 
 .progress-bar__subtitle {
@@ -140,4 +168,16 @@
 
 .progress-bar__subtitle_active {
   color: #fff;
+}
+
+@media screen and (min-width: 1576px) {
+  .card__info {
+    max-width: 632px;
+  }
+}
+
+@media screen and (max-width: 1575px) {
+  .card__info {
+    max-width: 590px;
+  }
 }

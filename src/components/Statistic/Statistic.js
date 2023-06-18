@@ -2,6 +2,7 @@ import '../../vendor/fonts/fonts.css'
 import './Statistic.css';
 import React from 'react';
 import Progress from '../Progress/Progress';
+import ScanIcon from '../../images/icon_scan.svg';
 
 function Statistic(props) {
   const statisticClass = `statistic ${props.openStatictic ? 'statistic_opened' : ''} `;
@@ -20,7 +21,11 @@ function Statistic(props) {
           <h3 className='statistic-shift__title statistic-shift__title_shift'>Текущая смена</h3>
         </div>
           <div className='statistic-shift__progress'>
-            <p className='statistic-shift__interest'>125 %</p>
+            <div className='statistic-shift__info'>
+              <img className='statistic-shift__icon' src={ScanIcon}/>
+              <p className='statistic-shift__text'>сканов</p>
+            </div>
+            <p className='statistic-shift__interest'>725</p>
             <p className='statistic-shift__count'>5 операций</p>
           </div>
           <Progress statics={props.statisticsShift} />
@@ -32,9 +37,12 @@ function Statistic(props) {
             <p className='statistic-shift__time'>00:16</p>
           </div>
           <div className='statistic-shift__progress'>
-            
-            <p className='statistic-shift__interest'>79 %</p>
-            <p className='statistic-shift__count'>192 единицы</p>
+            <div className='statistic-shift__info'>
+              <img className='statistic-shift__icon' src={ScanIcon}/>
+              <p className='statistic-shift__text'>сканов</p>
+            </div>
+            <p className='statistic-shift__interest'>{props.scanInOneHour}</p>
+            <p className='statistic-shift__count'>за этот час</p>
           </div>
           <Progress statics={props.staticsOperation} />
           <div  className='shift__goals'>

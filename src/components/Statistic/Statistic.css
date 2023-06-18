@@ -34,8 +34,8 @@
   position: absolute;
   z-index: 4;
   background-color: #fff;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   height: calc(100vh - 28px);
 }
 
@@ -74,7 +74,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 936px;
+  height: 100%;
+  background-color: #fff;
 }
 
 .statistic-shift {
@@ -97,7 +98,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .statistic-shift__title {
@@ -126,35 +126,59 @@
   position: absolute;
   border-radius: 24px;
   right: 182px;
-  top: 160px;
 }
 
 .statistic-shift__progress {
-  width: 720px;
+  font-family: 'YandexSansDisplay', Arial, sans-serif;
+  width: 100%;
   height: 428px;
   display: flex;
   align-items: center;
   justify-content: end;
   flex-direction: column;
-  margin-bottom: 120px;
+  margin-bottom: 110px;
   background-image: url('../../images/Ellipse\ 25\ \(1\)\ \(1\).svg');
   background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.statistic-shift__info {
+  width: 231px;
+  display: flex;
+  align-items: end;
+}
+
+.statistic-shift__icon {
+  width: 21px;
+  height: 17px;
+  margin-bottom: 2px;
+  margin-right: 14px;
+}
+
+.statistic-shift__text {
+  margin: 0;
+  font-family: 'YandexSansText', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -.01em;
 }
 
 .statistic-shift__interest {
-  font-family: 'YandexSansDisplay', Arial, sans-serif;
   font-size: 160px;
   font-weight: 700;
-  line-height: 161px;
-  margin: 0;
+  line-height: 160px;
+  margin: 0 0 0 4px;
+  letter-spacing: -.01em;
 }
 
 .statistic-shift__count {
-  font-size: 52px;
+  font-size: 44px;
   font-weight: 400;
-  line-height: 53px;
-  margin: 11px 0 42px 0;
-  letter-spacing: -.03em;
+  line-height: 46px;
+  margin: 2px 0px 19px 2px;
+  letter-spacing: -.04em;
 }
 
 .statistic-shift__button {
@@ -171,7 +195,7 @@
   font-weight: 500;
   line-height: 31px;
   letter-spacing: -.02em;
-  margin-bottom: 17px;
+  margin-bottom: 27px;
   cursor: pointer;
 }
 
@@ -189,4 +213,16 @@
 
 .shift__text {
   margin: 32px 0;
+}
+
+@media screen and (min-width: 1310px) {
+  .statistic-shift__time::after {
+    top: 160px;
+  }
+}
+
+@media screen and (max-width: 1309px) {
+  .statistic-shift__time::after {
+    top: 183px;
+  }
 }

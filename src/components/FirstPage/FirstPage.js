@@ -9,7 +9,7 @@ import ModalWindow from "../ModalWindow/ModalWindow";
 function FirstPage() {
     return (
         <>
-            <Header/>
+            <Header />
             <section className="main-block">
                 <Button buttonText="Есть проблема"/>
                 <div className="main-text-container">
