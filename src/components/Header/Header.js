@@ -17,6 +17,7 @@ function Header(props) {
   const closeBoxClass = `${!openMenu ? 'user-menu_hidden' : ''} user-menu`;
   const userInfoClass = `user__info ${props.userStatusTheme.name}`;
 
+
   function handelOpenMenu() {
     setOpenMenu(true);
   };
