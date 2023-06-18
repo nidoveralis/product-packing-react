@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/product-packing-react/static/css/main.396b15c1.css",
-    "main.js": "/product-packing-react/static/js/main.e1d1a683.js",
+    "main.js": "/product-packing-react/static/js/main.39d75248.js",
     "static/js/787.9ee2b72a.chunk.js": "/product-packing-react/static/js/787.9ee2b72a.chunk.js",
     "static/media/icon__box.svg": "/product-packing-react/static/media/icon__box.df12612bf9c8dc036d61adcbff71ba32.svg",
     "static/media/YandexSansText-Regular.woff2": "/product-packing-react/static/media/YandexSansText-Regular.6cad1ae5c5c95a0e01c2.woff2",
@@ -35,11 +35,11 @@
     "static/media/icon_senddrop.svg": "/product-packing-react/static/media/icon_senddrop.1fd76af9aa4f63d5faf41148fcd3bd42.svg",
     "static/media/icon__path.svg": "/product-packing-react/static/media/icon__path.73976a9703a33ca2f420.svg",
     "main.396b15c1.css.map": "/product-packing-react/static/css/main.396b15c1.css.map",
-    "main.e1d1a683.js.map": "/product-packing-react/static/js/main.e1d1a683.js.map",
+    "main.39d75248.js.map": "/product-packing-react/static/js/main.39d75248.js.map",
     "787.9ee2b72a.chunk.js.map": "/product-packing-react/static/js/787.9ee2b72a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.396b15c1.css",
-    "static/js/main.e1d1a683.js"
+    "static/js/main.39d75248.js"
   ]
 }
