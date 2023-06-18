@@ -10,7 +10,9 @@ import {Link} from "react-router-dom";
 function PackingPage(props) {
     return (
         <>
-            <Header/>
+            <Header handleOpenStatistic={props.openStatictic}
+                    scanCount={props.scanCount}
+                    userStatusTheme={props.userStatusTheme}/>
             <section className="packing-block">
                 <Button buttonText="Есть проблема"/>
                 <div className="packing-container">

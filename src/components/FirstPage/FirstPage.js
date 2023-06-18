@@ -6,10 +6,12 @@ import Keyboard from "../Keyboard/Keyboard";
 import Footer from "../Footer/Footer";
 import ModalWindow from "../ModalWindow/ModalWindow";
 
-function FirstPage() {
+function FirstPage(props) {
     return (
         <>
-            <Header />
+            <Header  handleOpenStatistic={props.openStatictic}
+                     scanCount={props.scanCount}
+                     userStatusTheme={props.userStatusTheme} />
             <section className="main-block">
                 <Button buttonText="Есть проблема"/>
                 <div className="main-text-container">

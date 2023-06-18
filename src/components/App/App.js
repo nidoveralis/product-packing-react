@@ -168,21 +168,28 @@ function App() {
 
   return (
       <Routes>
-        <Route path="/" element={<FirstPage />}/>
-        <Route path="/main" element={<Main 
-          cards={cards} onScanCard={onScanCard} 
-          openStatictic={openStatictic} 
-          handleOpenStatistic={handleOpenStatistic} 
-          statisticsShift={statisticsShift} 
-          staticsOperation={staticsOperation} 
-          scanCount={scanCount} 
-          scanInOneHour={scanInOneHour} 
+        <Route path="/" element={<FirstPage  scanCount={scanCount}
+                                             openStatictic={openStatictic}
+                                             userStatusTheme={userStatusTheme}  />}/>
+        <Route path="/main" element={<Main
+          cards={cards} onScanCard={onScanCard}
+          openStatictic={openStatictic}
+          handleOpenStatistic={handleOpenStatistic}
+          statisticsShift={statisticsShift}
+          staticsOperation={staticsOperation}
+          scanCount={scanCount}
+          scanInOneHour={scanInOneHour}
           userStatusTheme={userStatusTheme}
           packageType={packageType}
           visible={visible}
-          />}/>
-        <Route path="/packing" element={<PackingPage type="YME"/>}/>
-        <Route path="/success" element={<Success/>}/>
+        />}/>
+        <Route path="/packing" element={<PackingPage type="YME" scanCount={scanCount}
+                                                     openStatictic={openStatictic}
+                                                     userStatusTheme={userStatusTheme}
+        />}/>
+        <Route path="/success" element={<Success  scanCount={scanCount}
+                                                  openStatictic={openStatictic}
+                                                  userStatusTheme={userStatusTheme} />}/>
       </Routes>
   );
 }

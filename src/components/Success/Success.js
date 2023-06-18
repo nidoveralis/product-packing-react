@@ -3,11 +3,14 @@ import './Success.css'
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Button from "../Button/Button";
+import React from "react";
 
-function Success() {
+function Success(props) {
     return (
         <>
-            <Header/>
+            <Header handleOpenStatistic={props.openStatictic}
+                    scanCount={props.scanCount}
+                    userStatusTheme={props.userStatusTheme}/>
             <div className="success">
                 <Button buttonText="Есть проблема"/>
                 <div className="success-img-container">
