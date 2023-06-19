@@ -18,7 +18,7 @@ function Products({cards, onScanCard,packageType,visible, checkStatus}) {
       </ul>
     <ul className="cards">
       {cards.map((item)=>
-        <Card key={item._id} item={item} onScanCard={onScanCard} checkStatus={checkStatus} />
+        <Card key={item.sku} item={item} onScanCard={onScanCard} checkStatus={checkStatus} />
       )}
     </ul>
   </div>
