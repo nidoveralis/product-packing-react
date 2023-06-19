@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/product-packing-react/static/css/main.c47a741e.css",
-    "main.js": "/product-packing-react/static/js/main.66facf4f.js",
+    "main.css": "/product-packing-react/static/css/main.3d7248b1.css",
+    "main.js": "/product-packing-react/static/js/main.4d661ca1.js",
     "static/js/787.9ee2b72a.chunk.js": "/product-packing-react/static/js/787.9ee2b72a.chunk.js",
-    "static/media/icon__box.svg": "/product-packing-react/static/media/icon__box.df12612bf9c8dc036d61adcbff71ba32.svg",
+    "static/media/icon__box.svg": "/product-packing-react/static/media/icon__box.a27b6d3a35ec535fe5514e4e0d113314.svg",
     "static/media/YandexSansText-Regular.woff2": "/product-packing-react/static/media/YandexSansText-Regular.6cad1ae5c5c95a0e01c2.woff2",
     "static/media/YandexSansText-Medium.woff": "/product-packing-react/static/media/YandexSansText-Medium.6b83f25f39c3f10cc22e.woff",
     "static/media/YandexSansText-Bold.woff": "/product-packing-react/static/media/YandexSansText-Bold.93ad5a0a463082e24771.woff",
@@ -13,18 +13,18 @@
     "static/media/YandexSansText-Medium.woff2": "/product-packing-react/static/media/YandexSansText-Medium.43fa0def7951e857f96c.woff2",
     "static/media/YandexSansText-Bold.woff2": "/product-packing-react/static/media/YandexSansText-Bold.b7699b9b700ad29caa9b.woff2",
     "static/media/YandexSansDisplay-Bold.woff2": "/product-packing-react/static/media/YandexSansDisplay-Bold.f502192c0c4f8b5ba5cf.woff2",
-    "static/media/icon__keyboard.svg": "/product-packing-react/static/media/icon__keyboard.4480f32d1c9d342909c0418769dca8d5.svg",
+    "static/media/icon__keyboard.svg": "/product-packing-react/static/media/icon__keyboard.a7221883e03073ef4c0ace4b80b0baf9.svg",
     "static/media/icon_help.svg": "/product-packing-react/static/media/icon_help.d7f73e349f2ca7e5fce51f160ed43c13.svg",
     "static/media/icon_setting.svg": "/product-packing-react/static/media/icon_setting.28e2d847434157ad7bea03d4cd093f22.svg",
     "static/media/icon_brand.svg": "/product-packing-react/static/media/icon_brand.1a4559bd7eecc822dfc48e7970954ce9.svg",
     "index.html": "/product-packing-react/index.html",
-    "static/media/icon__important.svg": "/product-packing-react/static/media/icon__important.8516461063648decfc5b9ee700fc1945.svg",
-    "static/media/icon__edit.svg": "/product-packing-react/static/media/icon__edit.680a39b45a2ecac8d320ccc5f80cc5f8.svg",
+    "static/media/icon__important.svg": "/product-packing-react/static/media/icon__important.e91110a78574a949859ac6331d9f1b55.svg",
+    "static/media/icon__edit.svg": "/product-packing-react/static/media/icon__edit.181c5584934cd93c0d5689999a2c4d25.svg",
     "static/media/icon_cancel.svg": "/product-packing-react/static/media/icon_cancel.2e4ea4878224ef28b0a6b36e66525e7e.svg",
-    "static/media/el3.svg": "/product-packing-react/static/media/el3.325a9b9a74550cd3d9e2b88560523b6a.svg",
+    "static/media/el3.svg": "/product-packing-react/static/media/el3.ad428078ce9f6d2399c4164b228835cd.svg",
+    "static/media/el1.svg": "/product-packing-react/static/media/el1.46f6258347adcc77a87cdfc3d8149908.svg",
     "static/media/icon_none.svg": "/product-packing-react/static/media/icon_none.6b22a926dd19d2cc83753d37d86cb3ee.svg",
-    "static/media/el1.svg": "/product-packing-react/static/media/el1.fc208fe8502ce47b8406f38868c310b2.svg",
-    "static/media/el2.svg": "/product-packing-react/static/media/el2.5f05688f860711b22a51578aabc8376a.svg",
+    "static/media/el2.svg": "/product-packing-react/static/media/el2.22a2828f14d204cdd67b0a69fee849c1.svg",
     "static/media/icon_scan.svg": "/product-packing-react/static/media/icon_scan.1fe5bc142da0adb599abd7ae4d14d4a7.svg",
     "static/media/icon_scan_white.svg": "/product-packing-react/static/media/icon_scan_white.4e2f6d146f012aac3d65.svg",
     "static/media/icon_defect.svg": "/product-packing-react/static/media/icon_defect.f8f7fe9a157fb14fce59f251c64d4648.svg",
@@ -36,12 +36,12 @@
     "static/media/icon_closedrop.svg": "/product-packing-react/static/media/icon_closedrop.7a5ffdcaeb995f486daa2f09cb2a1a28.svg",
     "static/media/icon_senddrop.svg": "/product-packing-react/static/media/icon_senddrop.1fd76af9aa4f63d5faf41148fcd3bd42.svg",
     "static/media/icon__path.svg": "/product-packing-react/static/media/icon__path.73976a9703a33ca2f420.svg",
-    "main.c47a741e.css.map": "/product-packing-react/static/css/main.c47a741e.css.map",
-    "main.66facf4f.js.map": "/product-packing-react/static/js/main.66facf4f.js.map",
+    "main.3d7248b1.css.map": "/product-packing-react/static/css/main.3d7248b1.css.map",
+    "main.4d661ca1.js.map": "/product-packing-react/static/js/main.4d661ca1.js.map",
     "787.9ee2b72a.chunk.js.map": "/product-packing-react/static/js/787.9ee2b72a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c47a741e.css",
-    "static/js/main.66facf4f.js"
+    "static/css/main.3d7248b1.css",
+    "static/js/main.4d661ca1.js"
   ]
 }
