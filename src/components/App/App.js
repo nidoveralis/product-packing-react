@@ -186,7 +186,14 @@ function App() {
   return (
 
       <Routes>
-        <Route path="/" element={<FirstPage />}/>
+        <Route path="/" element={<FirstPage
+          handleOpenStatistic={handleOpenStatistic} 
+          scanCount={scanCount}
+          userStatusTheme={userStatusTheme}
+          scanInOneHour={scanInOneHour}
+          second={second}
+          minute={minute}
+        />}/>
         <Route path="/main" element={<Main 
           cards={cards} onScanCard={onScanCard} 
           openStatictic={openStatictic} 
