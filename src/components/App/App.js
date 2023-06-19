@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Main from '../Main/Main';
-import {HashRouter, Route, Routes, useHistory} from "react-router-dom";
+import {HashRouter, Route, Routes, useNavigate} from "react-router-dom";
 
 import img0 from '../../images/img0.png';
 import img1 from '../../images/img1.png';
@@ -67,7 +67,7 @@ const packageType = 'MYF'
 const scanInOneShift = 725;
 
 function App() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const scanCount = Math.floor(scanInOneShift * 100 / 1100);//колличество сканов для статистики
   const scanInOneHour = 60;//колличество сканов за час для статистики текущей операции
   const sentCards = [];
@@ -161,14 +161,14 @@ function App() {
   };
 
   function closeBox() {
-    history.push('/product-packing-react/packing');
+    navigate.push('/product-packing-react/packing');
   };
 
   function selectBox(type) {
     api.checkCarton(type)
     .then(res=>{
         if(res.status==='ok') {
-          history.push('/product-packing-react/success');
+          navigate.push('/product-packing-react/success');
         }
        })
      .catch(err=>console.log(err))
