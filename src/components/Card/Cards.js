@@ -2,15 +2,15 @@ import React from 'react';
 import './Card.css';
 import CardItem from '../CardItem/CardItem';
 
-function Card({item, onScanCard }) {
+function Card({item, onScanCard,checkStatus }) {
 
-  const [hiddenProducts,setHiddenProducts]= React.useState(item.count===1 ? false : true);
+  const [hiddenProducts,setHiddenProducts]= React.useState(item.amount===1 ? false : true);
 
-  const countContent = item.scan===0 ? `${item.count} шт.` : `${item.scan} из ${item.count} шт.`;
-  const progressCardClass = `progress-bar__subtitle ${item.full ? "progress-bar__subtitle_active" : ""}`;
-  const progressColor = `${Math.floor((100 / item.count) * item.scan)}%`;
+  const countContent = item.scan===0 ? `${item.amount} шт.` : `${item.scan} из ${item.amount} шт.`;
+  const progressCardClass = `progress-bar__subtitle ${checkStatus.full ? "progress-bar__subtitle_active" : ""}`;
+  const progressColor = `${Math.floor((100 / item.amount) * item.scan)}%`;
   const progressGradient = `linear-gradient(to right, #2AAD2E ${progressColor},#E8E8E8 ${progressColor})`
-  const hiddenProductsClass = `card__conteiner ${item.count==1 ? "conteiner_hidden" : ""}`;
+  const hiddenProductsClass = `card__conteiner ${item.amount==1 ? "conteiner_hidden" : ""}`;
   const numberImgClass = `card__number-img ${!hiddenProducts ? "card__number-img_active" : ""}  ${item.cancel && "cansel-text"}`;
   const hiddenProductsList = `card__conteiner ${hiddenProducts ? "conteiner_hidden" : ""} ${item.cancel && "cansel-text"}`;
 
@@ -45,16 +45,18 @@ function Card({item, onScanCard }) {
             <div className={numberImgClass} ></div>
           </button>
         }
+        checkStatus={checkStatus}
       />
-        { [...Array(item.count)].map((el, index) => <CardItem 
+        { [...Array(item.amount)].map((el, index) => <CardItem 
         key={index} 
         item={item} 
         handleScanProduct={handleScanProduct} 
         hiddenProducts={hiddenProducts}
         hiddenProductsClass={hiddenProductsList}
         childImg={
-          item.count===1 && <div className="card__img" style={{backgroundImage: `url(${item.img})`}} />
+          item.amount===1 && <div className="card__img" style={{backgroundImage: `url(${item.img})`}} />
         }
+        checkStatus={checkStatus}
         /> ) }
       </li>
   )

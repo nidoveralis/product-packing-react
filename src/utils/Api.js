@@ -6,7 +6,9 @@ class Api {
     };
     this._baseUrl = 'http://127.0.0.1';
   }
-
+//http://127.0.0.1/api/new-order/  
+//http://127.0.0.1/api/sku-check/  
+//http://127.0.0.1/api/selected-carton/
   _getResponseData(res) {
     if(!res) {
       console.log(res, res.status)
@@ -35,7 +37,7 @@ class Api {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body:JSON.stringify(data)//////возможно надо будет переделать
+      body:JSON.stringify(data)
       .then(res => this._getResponseData(res))
     })
   }

@@ -38,7 +38,7 @@ function Header(props) {
         </div>
       </div>
 
-      <h3 className="header__title">Упаковка</h3>
+      <p className="header__title">Упаковка</p>
       
       <div className="user">
         <button className={userInfoClass}  onClick={props.handleOpenStatistic}>

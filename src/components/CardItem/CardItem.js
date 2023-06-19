@@ -2,11 +2,11 @@ import React from 'react';
 import Icon from '../../images/icon_brand.svg';
 import IconCancel from '../../images/icon_cancel.svg';
 
-function CardItem({item, handleScanProduct, hiddenProductsClass, childImg, childCount, childNumber}) {
+function CardItem({item, handleScanProduct, hiddenProductsClass, childImg, childCount, childNumber, checkStatus}) {
 
   const [scan,setScan]= React.useState(false);
 
-  const tagCardClass = `card__tag ${item.tag ? "card__tag_active" : ""}`;
+  const tagCardClass = `card__tag ${item.repackaging ? "card__tag_active" : ""}`;
   const brandCardClass = `card__tag ${item.brand ? "card__brand" : ""}`;
   const cancelCardClass = `card__tag ${item.cancel ? "card__cancel" : ""}`;
   const numberCardClass = `card__number ${item.cancel ? "cansel-text" : ""}`;
@@ -30,10 +30,10 @@ function CardItem({item, handleScanProduct, hiddenProductsClass, childImg, child
             <img src={IconCancel} alt='Иконка отмены' className="card__icon" />
             <p>Товар отменён</p>
           </div>
-          <p className={tagCardClass} style={{gridRow:`${item.brand && '3/4'}`, marginTop:`${item.brand && '10px'}`}} >{item.tag}</p>
+          <p className={tagCardClass} style={{gridRow:`${item.brand && '3/4'}`, marginTop:`${item.brand && '10px'}`}} >Пузырчатая плёнка</p>
         </div>
         {childCount ?  childCount :<div className={scanCardClass} >1 шт.</div> } 
-        {childNumber ? childNumber :  <button className={numberCardClass} onClick={handleClickProduct} disabled={scan || item.cancel} >{item.barcode}</button>}
+        {childNumber ? childNumber :  <button className={numberCardClass} onClick={handleClickProduct} disabled={scan || item.cancel} >{item.sku}</button>}
       </div> 
   )
 };
