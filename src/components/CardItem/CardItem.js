@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from '../../images/icon_brand.svg';
 import IconCancel from '../../images/icon_cancel.svg';
 
-function CardItem({item, handleScanProduct, hiddenProducts}) {
+function CardItem({item, handleScanProduct, hiddenProductsClass, childImg, childCount, childNumber}) {
 
   const [scan,setScan]= React.useState(false);
 
@@ -11,23 +11,18 @@ function CardItem({item, handleScanProduct, hiddenProducts}) {
   const cancelCardClass = `card__tag ${item.cancel ? "card__cancel" : ""}`;
   const numberCardClass = `card__number ${item.cancel ? "cansel-text" : ""}`;
   const scanCardClass = `card__count conteiner ${scan ? "card__count_active" : ""}`;
-  const hiddenProductsClass = `card__conteiner ${hiddenProducts ? "conteiner_hidden" : ""} ${item.cancel && "cansel-text"}`;
 
   function handleClickProduct() {
     setScan(true)
     handleScanProduct(item);
   };
 
-  function handleClickBrand() {
-
-  };
-
   return(
     <div className={hiddenProductsClass} >
         <div className="card__info">
-          {item.count===1 && <div className="card__img" style={{backgroundImage: `url(${item.img})`}} />}
+         {childImg}
           <p className="card__description">{item.description}</p>
-          <button className={brandCardClass} onClick={handleClickBrand}>
+          <button className={brandCardClass} >
             <img src={Icon} alt='Иконка штрихкода' className="card__icon" />
               <p>Нужно сканировать марку</p>
             </button>
@@ -37,8 +32,8 @@ function CardItem({item, handleScanProduct, hiddenProducts}) {
           </div>
           <p className={tagCardClass} style={{gridRow:`${item.brand && '3/4'}`, marginTop:`${item.brand && '10px'}`}} >{item.tag}</p>
         </div>
-        <div className={scanCardClass} >1 шт.</div> 
-        <button className={numberCardClass} onClick={handleClickProduct} disabled={scan || item.cancel} >{item.barcode}</button>
+        {childCount ?  childCount :<div className={scanCardClass} >1 шт.</div> } 
+        {childNumber ? childNumber :  <button className={numberCardClass} onClick={handleClickProduct} disabled={scan || item.cancel} >{item.barcode}</button>}
       </div> 
   )
 };
