@@ -20,7 +20,7 @@ const cardsExemple = [
     amount:1,
     img: img3,
     repackaging: true,
-    sku: '9234567823432',
+    sku: '9db21acf9e6c1a66493c246c1461f989',
     scan: 0,
     full: false
   },
@@ -29,7 +29,7 @@ const cardsExemple = [
     amount:3,
     img: img0,
     repackaging: false,
-    sku: '9234567823433',
+    sku: '9db21acf9e6c1a66493c246c1461f989',
     scan: 0,
     full: false
   },
@@ -38,7 +38,7 @@ const cardsExemple = [
     amount:2,
     img: img1,
     repackaging: false,
-    sku: '9234567823434',
+    sku: '9db21acf9e6c1a66493c246c1461f989',
     scan: 0,
     full: false
   },
@@ -47,7 +47,7 @@ const cardsExemple = [
     amount:1,
     img: img2,
     repackaging: true,
-    sku: '9234567823434',
+    sku: '4aedb72c5662562524f6119918c7179b',
     scan: 0,
     full: false
   },
@@ -56,7 +56,7 @@ const cardsExemple = [
     amount:1,
     img: img4,
     repackaging: false,
-    sku: '9234567823434',
+    sku: 'af49bf330e2cf16e44f0be1bdfe337bd',
     scan: 0,
     full: false
   }
