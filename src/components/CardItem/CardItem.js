@@ -13,7 +13,7 @@ function CardItem({item, handleScanProduct, hiddenProductsClass, childImg, child
   const scanCardClass = `card__count conteiner ${scan ? "card__count_active" : ""}`;
 
   function handleClickProduct() {
-    setScan(true)
+    setScan(checkStatus.sku==='ok')
     handleScanProduct(item);
   };
 

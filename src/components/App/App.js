@@ -73,7 +73,7 @@ function App() {
   const scanCount = Math.floor(scanInOneShift * 100 / 1100);//колличество сканов для статистики
   const scanInOneHour = 60;//колличество сканов за час для статистики текущей операции
   const sentCards = [];
-  const [cards, setCards] = React.useState();///массив с товарами
+  const [cards, setCards] = React.useState(cardsExemple);///массив с товарами
   const [openStatictic, setOpenStatictic] = React.useState(false);///открывать статистику
   const [statisticsShift, setStatisticsShift] = React.useState({1:0,2:0,3:0});
   const [staticsOperation, setStatisticsOperation] = React.useState({1:0,2:0,3:0});
@@ -129,15 +129,15 @@ function App() {
 
   function onScanCard(item) {////сканируе и отправляет на сервер
     setVisible(true);
-    api.checkProduct(item.sku)
-      .then(res=>{
-        setCheckStatus({full:res.finish,sku: res.status})
-    })
-    .catch(err=>console.log(err))
+  //  api.checkProduct(item.sku)
+   //   .then(res=>{
+   //     setCheckStatus({full:res.finish,sku: res.status})
+   // })
+   // .catch(err=>console.log(err))
     if(!item.full){
       item.scan++;
       sentCards.push(item.sku);
-      setCheckStatus({full:true,sku: 'ok'})
+      setCheckStatus({full:false,sku: 'ok'})
       if(item.scan===item.amount) {
         item.full=true;
       };
@@ -199,6 +199,9 @@ function App() {
           scanInOneHour={scanInOneHour}
           second={second}
           minute={minute}
+          openStatictic={openStatictic} 
+          statisticsShift={statisticsShift} 
+          staticsOperation={staticsOperation}
         />}/>
         <Route path="/main" element={<Main
           cards={cards} onScanCard={onScanCard}

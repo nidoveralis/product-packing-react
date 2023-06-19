@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import Keyboard from "../Keyboard/Keyboard";
 import Footer from "../Footer/Footer";
 import ModalWindow from "../ModalWindow/ModalWindow";
+import Statistic from '../Statistic/Statistic';
 
 function FirstPage(props) {
     return (
@@ -27,6 +28,7 @@ function FirstPage(props) {
             </section>
             <Keyboard/>
             <Footer/>
+            <Statistic openStatictic={props.openStatictic} handleOpenStatistic={props.handleOpenStatistic} statisticsShift={props.statisticsShift} staticsOperation={props.staticsOperation} scanInOneHour={props.scanInOneHour} second={props.second} minute={props.minute} />
         </>
     )
 }
