@@ -3,12 +3,10 @@ import Card from '../Card/Cards';
 import './Products.css';
 import {THEME_PACKAGE} from '../../utils/constants';
 
-function Products({cards, onScanCard,packageType,visible}) {
+function Products({cards, onScanCard,packageType,visible, checkStatus}) {
   
   const classItemPack = `products__list-item products__list-item_pack conteiner ${visible ? '' : 'products_hidden'} `;
 
-console.log(THEME_PACKAGE[packageType].name)
-//packageType
   return(
     <div className="products">
     <h5 className="products__title">Сканируйте товары из ячейки</h5>
@@ -20,7 +18,7 @@ console.log(THEME_PACKAGE[packageType].name)
       </ul>
     <ul className="cards">
       {cards.map((item)=>
-        <Card key={item._id} item={item} onScanCard={onScanCard} />
+        <Card key={item.sku} item={item} onScanCard={onScanCard} checkStatus={checkStatus} />
       )}
     </ul>
   </div>

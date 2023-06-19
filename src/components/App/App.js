@@ -16,87 +16,74 @@ import { api } from '../../utils/Api';
 
 const cardsExemple = [
   {
-    _id: 0,
     description:'Умная колонка Яндекс Станция Лайт, ультрафиолет',
-    count:1,
+    amount:1,
     img: img3,
-    tag: 'Пузырчатая плёнка',
-    brand: false,
-    barcode: '9234 5678 234 32',
+    repackaging: true,
+    sku: '9234 5678 234 32',
     scan: 0,
-    full: false,
-    cancel: false
+    full: false
   },
   {
-    _id:1,
     description:'Тарелка. Императорский фарфоровый завод. Форма "Стандартная - 2", рисунок "Скарлетт 2". Костяной фарфор . 270 мм.',
-    count:3,
+    amount:3,
     img: img0,
-    tag: '',
-    brand: false,
-    barcode: '9234 5678 234 33',
+    repackaging: false,
+    sku: '9234 5678 234 33',
     scan: 0,
-    full: false,
-    cancel: false
+    full: false
   },
   {
-    _id:2,
     description:'Набор для рисования, детский художественный набор в чемоданчике, набор юного художника, 48 предметов и раскраска',
-    count:2,
+    amount:2,
     img: img1,
-    tag: '',
-    brand: false,
-    barcode: '9234 5678 234 34',
+    repackaging: false,
+    sku: '9234 5678 234 34',
     scan: 0,
-    full: false,
-    cancel: false
+    full: false
   },
   {
-    _id:3,
     description:'Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED',
-    count:1,
+    amount:1,
     img: img2,
-    tag: 'Пузырчатая плёнка',
-    brand: true,
-    barcode: '9234 5678 234 34',
+    repackaging: true,
+    sku: '9234 5678 234 34',
     scan: 0,
-    full: false,
-    cancel: false
+    full: false
   },
   {
-    _id:3,
     description:'Модуль с Яндекс.ТВ - Смарт.ТВ с Алисой [4K], черный',
-    count:1,
+    amount:1,
     img: img4,
-    tag: '',
-    brand: false,
-    barcode: '9234 5678 234 34',
+    repackaging: false,
+    sku: '9234 5678 234 34',
     scan: 0,
-    full: false,
-    cancel: true
+    full: false
   }
 ]
 
 
 
 
-const packageType = 'YME'
-
-const zaSmenu = 725;
-
-/////возможно перенести в другой файл
-
+const packageType = 'MYF'
+const scanInOneShift = 725;
 
 function App() {
-  const scanCount = Math.floor(zaSmenu * 100 / 1100);//колличество сканов для статистики
-  const scanInOneHour = 110;//колличество сканов за час для статистики текущей операции
+  const scanCount = Math.floor(scanInOneShift * 100 / 1100);//колличество сканов для статистики
+  const scanInOneHour = 60;//колличество сканов за час для статистики текущей операции
   const sentCards = [];
-  const [cards, setCards] = React.useState(cardsExemple);///массив с товарами
+  const [cards, setCards] = React.useState();///массив с товарами
   const [openStatictic, setOpenStatictic] = React.useState(false);///открывать статистику
   const [statisticsShift, setStatisticsShift] = React.useState({1:0,2:0,3:0});
   const [staticsOperation, setStatisticsOperation] = React.useState({1:0,2:0,3:0});
   const [userStatusTheme, setUserStatusTheme] = React.useState(THEME_BUTTON.default);
   const [visible,setVisible] = React.useState(false);
+  const [timer,setTimer] = React.useState(false);
+  const [minute,setMinute] = React.useState(60);
+  const [second,setSecond] = React.useState(0);
+  const [box, setBox] = React.useState();
+  const [checkStatus, setCheckStatus] = React.useState({full:false,sku: false});
+
 
   function calculateStatistics(count) {///считает статистику смены
     if(count >= 100) {
@@ -124,26 +111,42 @@ function App() {
         3:WIDTH_SIDE_LINE
       }
     }
-  }
+  };
 
   React.useEffect(()=>{
-   ///// api.submitBox("order3").then(res=>console.log(res)).catch(err=>console.log(err))
+     api.submitBox("order3")
+    .then(res=>{
+      setBox(res.boxes[0].box);
+      if(box) {
+        api.addedNewOrder(res)
+        .then(setCards(res))
+        .catch(err=>console.log(err))
+      }
+    })
+    .catch(err=>console.log(err))
   },[])
 
   function onScanCard(item) {////сканируе и отправляет на сервер
     setVisible(true);
+    api.checkProduct(item.sku)
+      .then(res=>{
+        setCheckStatus({full:res.finish,sku: res.status})
+    })
+    .catch(err=>console.log(err))
     if(!item.full){
       item.scan++;
-      sentCards.push(item.barcode);
-      if(item.scan===item.count) {
+      sentCards.push(item.sku);
+      setCheckStatus({full:true,sku: 'ok'})
+      if(item.scan===item.amount) {
         item.full=true;
       };
-      setCards((state) => state.map((c) => c._id === item._id ? item : c));
+      setCards((state) => state.map((c) => c.sku === item.sku ? item : c));
     };
   };
 
   function handleOpenStatistic() {
     setOpenStatictic(!openStatictic);
+    setTimer(true);
   };
 
   function decideThemeButton() {
@@ -166,31 +169,60 @@ function App() {
     decideThemeButton();
   },[]);
 
+  React.useEffect(() => {
+    if (second > 0 && timer) {
+      setTimeout(setSecond, 1000, second - 1);
+    } else {
+      setTimer(false);
+    }
+    if(second===0) {
+      setSecond(59);
+      setMinute(minute-1);
+    }
+    if(second===0 && minute===0) {
+      setTimer(false);
+    }
+  }, [ second, timer ]);
+
   return (
-        <Routes>
-          <Route path="/" element={<FirstPage scanCount={scanCount}
-                                              openStatictic={openStatictic}
-                                              userStatusTheme={userStatusTheme}/>}/>
-          <Route path="/main" element={<Main
-              cards={cards} onScanCard={onScanCard}
-              openStatictic={openStatictic}
-              handleOpenStatistic={handleOpenStatistic}
-              statisticsShift={statisticsShift}
-              staticsOperation={staticsOperation}
-              scanCount={scanCount}
-              scanInOneHour={scanInOneHour}
-              userStatusTheme={userStatusTheme}
-              packageType={packageType}
-              visible={visible}
+
+      <Routes>
+        <Route path="/" element={<FirstPage
+          handleOpenStatistic={handleOpenStatistic}
+          scanCount={scanCount}
+          userStatusTheme={userStatusTheme}
+          scanInOneHour={scanInOneHour}
+          second={second}
+          minute={minute}
+        />}/>
+        <Route path="/main" element={<Main
+          cards={cards} onScanCard={onScanCard}
+          openStatictic={openStatictic}
+          handleOpenStatistic={handleOpenStatistic}
+          statisticsShift={statisticsShift}
+          staticsOperation={staticsOperation}
+          scanCount={scanCount}
+          scanInOneHour={scanInOneHour}
+          userStatusTheme={userStatusTheme}
+          packageType={packageType}
+          visible={visible}
+          second={second}
+          minute={minute}
+          checkStatus={checkStatus}
           />}/>
-          <Route path="/packing" element={<PackingPage type="YME" scanCount={scanCount}
-                                                       openStatictic={openStatictic}
-                                                       userStatusTheme={userStatusTheme}
-          />}/>
-          <Route path="/success" element={<Success scanCount={scanCount}
-                                                   openStatictic={openStatictic}
-                                                   userStatusTheme={userStatusTheme}/>}/>
-        </Routes>
+        <Route path="/packing" element={<PackingPage
+          type={packageType}
+          handleOpenStatistic={handleOpenStatistic}
+          scanCount={scanCount}
+          userStatusTheme={userStatusTheme}
+          scanInOneHour={scanInOneHour} />}/>
+        <Route path="/success" element={<Success
+          handleOpenStatistic={handleOpenStatistic}
+          scanCount={scanCount}
+          userStatusTheme={userStatusTheme}
+          scanInOneHour={scanInOneHour}
+        />}/>
+      </Routes>
   );
 }
 

@@ -59,7 +59,7 @@ const THEME_PACKAGE = {
 
 const THEME_BUTTON = {
   default:{
-    progressColor: '#FED42B',
+    progressColor: '#F3F0E9',
     name: 'default',
   },
   bad:{

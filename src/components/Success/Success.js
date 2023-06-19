@@ -8,9 +8,12 @@ import React from "react";
 function Success(props) {
     return (
         <>
-            <Header handleOpenStatistic={props.openStatictic}
-                    scanCount={props.scanCount}
-                    userStatusTheme={props.userStatusTheme}/>
+            <Header
+                handleOpenStatistic={props.handleOpenStatistic}
+                scanCount={props.scanCount}
+                userStatusTheme={props.userStatusTheme}
+                scanInOneHour={props.scanInOneHour}
+            />
             <div className="success">
                 <Button buttonText="Есть проблема"/>
                 <div className="success-img-container">

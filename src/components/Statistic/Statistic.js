@@ -34,7 +34,7 @@ function Statistic(props) {
         <div className='statistic-shift'>
           <div className='statistic-shift__container'>
             <h3 className='statistic-shift__title'>Текущая операция</h3>
-            <p className='statistic-shift__time'>00:16</p>
+            <p className='statistic-shift__time'>{`${props.minute}:${props.second}`}</p>
           </div>
           <div className='statistic-shift__progress'>
             <div className='statistic-shift__info'>

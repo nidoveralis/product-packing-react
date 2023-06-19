@@ -60,10 +60,12 @@
 }
 
 .card__info {
-  max-height: 118px;
   display: grid;
   grid-template-columns: 142px auto;
-  grid-template-rows: auto  50px;
+}
+
+.card__info_brand {
+  max-height: 174px;
 }
 
 .card__number {
@@ -129,17 +131,34 @@
   margin: 0;
   letter-spacing: -.011em;
   height: 48px;
+  align-self: end;
 }
 
 .card__tag_active {
   background-color: #E0EEFF;
   display: flex;
-  margin-top: 10px;
 }
 
 .card__brand {
   background-color: #FFECCC;
   display: flex;
+  padding: 0 18px;
+  border: none;
+  cursor: pointer;
+}
+
+.card__cancel {
+  display: flex;
+  color: #FF0000;
+}
+
+.cansel-text {
+  color:#878787;
+}
+
+.card__icon {
+  margin-left: 3px;
+  margin-right: 16px;
 }
 
 .progress-bar {

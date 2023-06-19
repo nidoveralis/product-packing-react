@@ -35,7 +35,7 @@ class Api {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body:JSON.stringify(data)//////возможно надо будет переделать
+      body:JSON.stringify(data)
       .then(res => this._getResponseData(res))
     })
   }
