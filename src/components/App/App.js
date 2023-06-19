@@ -20,7 +20,7 @@ const cardsExemple = [
     amount:1,
     img: img3,
     repackaging: true,
-    sku: '9234 5678 234 32',
+    sku: '9234567823432',
     scan: 0,
     full: false
   },
@@ -29,7 +29,7 @@ const cardsExemple = [
     amount:3,
     img: img0,
     repackaging: false,
-    sku: '9234 5678 234 33',
+    sku: '9234567823433',
     scan: 0,
     full: false
   },
@@ -38,7 +38,7 @@ const cardsExemple = [
     amount:2,
     img: img1,
     repackaging: false,
-    sku: '9234 5678 234 34',
+    sku: '9234567823434',
     scan: 0,
     full: false
   },
@@ -47,7 +47,7 @@ const cardsExemple = [
     amount:1,
     img: img2,
     repackaging: true,
-    sku: '9234 5678 234 34',
+    sku: '9234567823434',
     scan: 0,
     full: false
   },
@@ -56,7 +56,7 @@ const cardsExemple = [
     amount:1,
     img: img4,
     repackaging: false,
-    sku: '9234 5678 234 34',
+    sku: '9234567823434',
     scan: 0,
     full: false
   }
