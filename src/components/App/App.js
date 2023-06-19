@@ -81,14 +81,10 @@ const cardsExemple = [
 
 
 const packageType = 'MYF'
-
-const zaSmenu = 725;
-
-/////возможно перенести в другой файл
-
+const scanInOneShift = 725;
 
 function App() {
-  const scanCount = Math.floor(zaSmenu * 100 / 1100);//колличество сканов для статистики
+  const scanCount = Math.floor(scanInOneShift * 100 / 1100);//колличество сканов для статистики
   const scanInOneHour = 60;//колличество сканов за час для статистики текущей операции
   const sentCards = [];
   const [cards, setCards] = React.useState(cardsExemple);///массив с товарами
@@ -127,7 +123,7 @@ function App() {
         3:WIDTH_SIDE_LINE
       }
     }
-  }
+  };
 
   React.useEffect(()=>{
    ///// api.submitBox("order3").then(res=>console.log(res)).catch(err=>console.log(err))

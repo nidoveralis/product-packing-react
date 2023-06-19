@@ -3,7 +3,7 @@ import Card from '../Card/Cards';
 import './Products.css';
 import {THEME_PACKAGE} from '../../utils/constants';
 
-function Products({cards, onScanCard,packageType,visible}) {
+function Products({cards, onScanCard,packageType,visible, openModal}) {
   
   const classItemPack = `products__list-item products__list-item_pack conteiner ${visible ? '' : 'products_hidden'} `;
 
@@ -18,7 +18,7 @@ function Products({cards, onScanCard,packageType,visible}) {
       </ul>
     <ul className="cards">
       {cards.map((item)=>
-        <Card key={item._id} item={item} onScanCard={onScanCard} />
+        <Card key={item._id} item={item} onScanCard={onScanCard}  />
       )}
     </ul>
   </div>

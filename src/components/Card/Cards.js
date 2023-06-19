@@ -3,7 +3,7 @@ import './Card.css';
 import CardItem from '../CardItem/CardItem';
 import Icon from '../../images/icon_brand.svg';
 
-function Card({item, onScanCard, className }) {
+function Card({item, onScanCard }) {
 
   const [hiddenProducts,setHiddenProducts]= React.useState(item.count===1 ? false : true);
 
@@ -14,7 +14,7 @@ function Card({item, onScanCard, className }) {
   const progressColor = `${Math.floor((100 / item.count) * item.scan)}%`;
   const progressGradient = `linear-gradient(to right, #2AAD2E ${progressColor},#E8E8E8 ${progressColor})`
   const hiddenProductsClass = `card__conteiner ${item.count===1 ? "conteiner_hidden" : ""}`;
-  const numberImgClass = `card__number-img ${!hiddenProducts ? "card__number-img_active" : ""}`;
+  const numberImgClass = `card__number-img ${!hiddenProducts ? "card__number-img_active" : ""}  ${item.cancel && "cansel-text"}`;
 
   function openHiddenProducts() {
     setHiddenProducts(!hiddenProducts);
@@ -24,8 +24,9 @@ function Card({item, onScanCard, className }) {
     onScanCard(item);
   };
 
+
   return (
-      <li className={`card ${className}`} >
+      <li className={`card`} >
         <div className={hiddenProductsClass}>
           <div className="card__info">
             <div className="card__img" style={{backgroundImage: `url(${item.img})`}} />
@@ -40,8 +41,8 @@ function Card({item, onScanCard, className }) {
             {item.scan>0 ? <div className="progress-bar__conteiner conteiner" style={{background: progressGradient, opacity: progressColor}} /> : <div className="progress-bar__cont conteiner" /> }
             <p className={progressCardClass}>{countContent}</p>
           </div>
-          <button className="card__number" onClick={openHiddenProducts}>
-            <p className="card__number-text" >{hiddenProducts ? 'Развернуть' : 'Свернуть'}</p>
+          <button className="card__number" onClick={openHiddenProducts}  disabled={item.cancel}>
+            <p className="card__number-text" >{hiddenProducts ? "Развернуть" : "Свернуть"}</p>
             <div className={numberImgClass} ></div>
             </button>
         </div>
