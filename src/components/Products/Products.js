@@ -17,8 +17,8 @@ function Products({cards, onScanCard,packageType,visible, checkStatus}) {
         <li className={classItemPack} style={{backgroundColor:THEME_PACKAGE[packageType].color}} >{visible && THEME_PACKAGE[packageType].name}</li>
       </ul>
     <ul className="cards">
-      {cards.map((item)=>
-        <Card key={item.sku} item={item} onScanCard={onScanCard} checkStatus={checkStatus} />
+      {cards.map((item,index)=>
+        <Card key={index} item={item} onScanCard={onScanCard} checkStatus={checkStatus} />
       )}
     </ul>
   </div>
