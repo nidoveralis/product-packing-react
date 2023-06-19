@@ -13,6 +13,7 @@ import PackingPage from "../PackingPage/PackingPage";
 import Success from "../Success/Success";
 import { THEME_BUTTON,WIDTH_SIDE_LINE,WIDTH_MEDIUM_LINE,WIDTH_ALL_LINE } from "../../utils/constants"
 import { api } from '../../utils/Api';
+import { func } from 'prop-types';
 
 const cardsExemple = [
   {
@@ -72,7 +73,7 @@ function App() {
   const scanCount = Math.floor(scanInOneShift * 100 / 1100);//колличество сканов для статистики
   const scanInOneHour = 60;//колличество сканов за час для статистики текущей операции
   const sentCards = [];
-  const [cards, setCards] = React.useState(cardsExemple);///массив с товарами
+  const [cards, setCards] = React.useState();///массив с товарами
   const [openStatictic, setOpenStatictic] = React.useState(false);///открывать статистику
   const [statisticsShift, setStatisticsShift] = React.useState({1:0,2:0,3:0});
   const [staticsOperation, setStatisticsOperation] = React.useState({1:0,2:0,3:0});
@@ -128,11 +129,11 @@ function App() {
 
   function onScanCard(item) {////сканируе и отправляет на сервер
     setVisible(true);
-  //  api.checkProduct(item.sku)
-   //   .then(res=>{
-   //     setCheckStatus({full:res.finish,sku: res.status})
-   // })
-   // .catch(err=>console.log(err))
+    api.checkProduct(item.sku)
+      .then(res=>{
+        setCheckStatus({full:res.finish,sku: res.status})
+    })
+    .catch(err=>console.log(err))
     if(!item.full){
       item.scan++;
       sentCards.push(item.sku);
@@ -159,6 +160,10 @@ function App() {
     }else if(scanInOneHour>100) {
       setUserStatusTheme(THEME_BUTTON.excellent);
     };
+  };
+
+  function selectBox(type) {
+    api.checkCarton(type)
   };
 
   React.useEffect(()=>{
@@ -214,7 +219,9 @@ function App() {
           handleOpenStatistic={handleOpenStatistic}
           scanCount={scanCount}
           userStatusTheme={userStatusTheme}
-          scanInOneHour={scanInOneHour} />}/>
+          scanInOneHour={scanInOneHour}
+          selectBox={selectBox}
+          />}/>
         <Route path="/success" element={<Success
           handleOpenStatistic={handleOpenStatistic}
           scanCount={scanCount}
