@@ -1,7 +1,6 @@
 import React from 'react';
 import './Card.css';
 import CardItem from '../CardItem/CardItem';
-import img1 from '../../images/img1.png';
 
 function Card({item, onScanCard,checkStatus }) {
 
@@ -32,7 +31,7 @@ function Card({item, onScanCard,checkStatus }) {
         hiddenProducts={hiddenProducts}
         hiddenProductsClass={hiddenProductsClass}
         childImg={
-          <div className="card__img" style={{backgroundImage: `url(${img1})`}} />
+          <div className="card__img" style={{backgroundImage: `url(${item.img})`}} />
         }
         childCount={
           <div className="progress-bar">
@@ -55,7 +54,7 @@ function Card({item, onScanCard,checkStatus }) {
         hiddenProducts={hiddenProducts}
         hiddenProductsClass={hiddenProductsList}
         childImg={
-          item.amount===1 && <div className="card__img" style={{backgroundImage: `url(${img1})`}} />
+          item.amount===1 && <div className="card__img" style={{backgroundImage: `url(${item.img})`}} />
         }
         checkStatus={checkStatus}
         /> ) }

@@ -13,7 +13,6 @@ import PackingPage from "../PackingPage/PackingPage";
 import Success from "../Success/Success";
 import { THEME_BUTTON,WIDTH_SIDE_LINE,WIDTH_MEDIUM_LINE,WIDTH_ALL_LINE } from "../../utils/constants"
 import { api } from '../../utils/Api';
-import { func } from 'prop-types';
 
 const cardsExemple = [
   {
@@ -161,6 +160,10 @@ function App() {
     };
   };
 
+  function closeBox() {
+    history.push('/product-packing-react/packing');
+  };
+
   function selectBox(type) {
     api.checkCarton(type)
     .then(res=>{
@@ -221,6 +224,7 @@ function App() {
           second={second}
           minute={minute}
           checkStatus={checkStatus}
+          closeBox={closeBox}
           />}/>
         <Route path="/product-packing-react/packing" element={<PackingPage
           type={packageType}

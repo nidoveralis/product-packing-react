@@ -23,7 +23,7 @@ function Main(props){
         <main className="content">
           <Button buttonText="Есть проблема"/>
           <Products cards={props.cards} onScanCard={props.onScanCard} packageType={props.packageType} visible={props.visible} checkStatus={props.checkStatus} />
-          <Button buttonText="Закрыть коробку" buttonClass={buttonClass} />
+          <Button buttonText="Закрыть коробку" buttonClass={buttonClass} onClick={props.closeBox} />
         </main>
         <Keyboard>
             <div className="edit__container">
