@@ -46,7 +46,7 @@ function Header(props) {
           <div className="user__status conteiner" style={{background: `linear-gradient(to right, ${props.userStatusTheme.progressColor} ${props.scanInOneHour}%,#E8E8E8 ${props.scanInOneHour}%)`}} >
             <div className="user__logo" />
             <p className="user__text">79</p>
-            <div className="user__text user-time">15:59</div>
+            <div className="user__text user-time">{`${props.minute}:${props.second}`}</div>
           </div>
         </button>
         <button className="user__setting" onClick={handelOpenMenu}></button>

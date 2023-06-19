@@ -82,6 +82,8 @@ function App() {
   const [minute,setMinute] = React.useState(60);
   const [second,setSecond] = React.useState(0);
   const [box, setBox] = React.useState();
+  const [checkStatus, setCheckStatus] = React.useState({full:false,sku: false});
+
 
   function calculateStatistics(count) {///считает статистику смены
     if(count >= 100) { 
@@ -123,7 +125,6 @@ function App() {
     })
     .catch(err=>console.log(err))
   },[])
-  const [checkStatus, setCheckStatus] = React.useState({full:false,sku: false})
 
   function onScanCard(item) {////сканируе и отправляет на сервер
     setVisible(true);

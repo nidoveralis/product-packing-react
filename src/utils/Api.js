@@ -6,9 +6,7 @@ class Api {
     };
     this._baseUrl = 'http://127.0.0.1';
   }
-//http://127.0.0.1/api/new-order/  
-//http://127.0.0.1/api/sku-check/  
-//http://127.0.0.1/api/selected-carton/
+
   _getResponseData(res) {
     if(!res) {
       console.log(res, res.status)
