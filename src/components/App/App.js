@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Main from '../Main/Main';
-import {Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 
 import img0 from '../../images/img0.png';
 import img1 from '../../images/img1.png';
@@ -185,7 +185,6 @@ function App() {
   }, [ second, timer ]);
 
   return (
-
       <Routes>
         <Route path="/" element={<FirstPage
           handleOpenStatistic={handleOpenStatistic}
