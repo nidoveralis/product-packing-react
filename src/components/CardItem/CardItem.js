@@ -12,11 +12,37 @@ function CardItem({item, handleScanProduct, hiddenProductsClass, childImg, child
   const numberCardClass = `card__number ${item.cancel ? "cansel-text" : ""}`;
   const scanCardClass = `card__count conteiner ${scan ? "card__count_active" : ""}`;
 
+
+  const [hiddenProducts,setHiddenProducts]= React.useState(item.amount===1 ? false : true);
+
+  const countContent = item.scan===0 ? `${item.amount} шт.` : `${item.scan} из ${item.amount} шт.`;
+  const progressCardClass = `progress-bar__subtitle ${checkStatus.full ? "progress-bar__subtitle_active" : ""}`;
+  const progressColor = `${Math.floor((100 / item.amount) * item.scan)}%`;
+  const progressGradient = `linear-gradient(to right, #2AAD2E ${progressColor},#E8E8E8 ${progressColor})`
+  //const hiddenProductsClass = `card__conteiner ${item.amount==1 ? "conteiner_hidden" : ""}`;
+  const numberImgClass = `card__number-img ${!hiddenProducts ? "card__number-img_active" : ""}  ${item.cancel && "cansel-text"}`;
+  const hiddenProductsList = `card__conteiner ${hiddenProducts ? "conteiner_hidden" : ""} ${item.cancel && "cansel-text"}`;
+
+  function openHiddenProducts() {
+    setHiddenProducts(!hiddenProducts);
+  };
+
+  //function handleScanProduct() {
+  //  onScanCard(item);
+  //};
+
+  const a = <button className="card__number" onClick={openHiddenProducts}  disabled={item.cancel}>
+  <p className="card__number-text" >{hiddenProducts ? "Развернуть" : "Свернуть"}</p>
+  <div className={numberImgClass} ></div>
+</button>
+
+const b = <button className={numberCardClass} onClick={handleClickProduct} disabled={scan || item.cancel} >{item.sku}</button>
+
   function handleClickProduct() {
     setScan(true)
     handleScanProduct(item);
   };
-
+console.log(childNumber)
   return(
     <div className={hiddenProductsClass} >
         <div className="card__info">

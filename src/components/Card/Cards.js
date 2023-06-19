@@ -40,12 +40,7 @@ function Card({item, onScanCard,checkStatus }) {
           <p className={progressCardClass}>{countContent}</p>
         </div>}
 
-        childNumber={
-          <button className="card__number" onClick={openHiddenProducts}  disabled={item.cancel}>
-            <p className="card__number-text" >{hiddenProducts ? "Развернуть" : "Свернуть"}</p>
-            <div className={numberImgClass} ></div>
-          </button>
-        }
+        childNumber={'a'}
         checkStatus={checkStatus}
       />
         { [...Array(item.amount)].map((el, index) => <CardItem 
