@@ -19,6 +19,7 @@ function Header(props) {
 
   function handelOpenMenu() {
     setOpenMenu(true);
+    console.log("Я обовился")
   };
 
   function handelCloseMenu() {
