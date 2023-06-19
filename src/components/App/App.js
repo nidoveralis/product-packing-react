@@ -161,14 +161,14 @@ function App() {
   };
 
   function closeBox() {
-    navigate.push('/product-packing-react/packing');
+    navigate('/product-packing-react/packing');
   };
 
   function selectBox(type) {
     api.checkCarton(type)
     .then(res=>{
         if(res.status==='ok') {
-          navigate.push('/product-packing-react/success');
+          navigate('/product-packing-react/success');
         }
        })
      .catch(err=>console.log(err))
