@@ -12,9 +12,9 @@ import FirstPage from "../FirstPage/FirstPage";
 import PackingPage from "../PackingPage/PackingPage";
 import Success from "../Success/Success";
 import { THEME_BUTTON,WIDTH_SIDE_LINE,WIDTH_MEDIUM_LINE,WIDTH_ALL_LINE } from "../../utils/constants"
-import { api } from '../../utils/Api';
+import { api } from '../../utils/Api'; 
 
-const cardsExemple = [
+const items = [
   {
     description:'Умная колонка Яндекс Станция Лайт, ультрафиолет',
     amount:1,
@@ -63,7 +63,7 @@ const cardsExemple = [
 ]
 
 
-const packageType = 'MYF'
+//const packageType = 'MYF'
 const scanInOneShift = 725;
 
 function App() {
@@ -82,6 +82,7 @@ function App() {
   const [minute,setMinute] = React.useState(60);
   const [second,setSecond] = React.useState(0);
   const [box, setBox] = React.useState();
+  const [packageType, setPackageType] = React.useState("");
   const [checkStatus, setCheckStatus] = React.useState({full:false,sku: false});
 
 
@@ -117,6 +118,7 @@ function App() {
     api.submitBox("order3")
     .then(res=>{
       setTimer(true);
+        setPackageType(res.selected_carton)
       setBox(res.boxes[0].box);
       if(box) {
         api.addedNewOrder(res)
