@@ -20,6 +20,8 @@ function PackingPage(props) {
                 scanCount={props.scanCount}
                 userStatusTheme={props.userStatusTheme}
                 scanInOneHour={props.scanInOneHour}
+                second={props.second}
+                minute={props.minute}
             />
             <section className="packing-block">
                 <Button buttonText="Есть проблема"/>
@@ -28,7 +30,7 @@ function PackingPage(props) {
                     <h1 className="packing__text">Упакуйте товары и&nbsp;сканируйте коробку <span className="packing-type" style={{backgroundColor:THEME_PACKAGE[props.type].color}} onClick={handelClickBox} >{props.type}</span></h1>
                 </div>
             </section>
-            <Keyboard button={<Link to="/main" className="button__back">Назад</Link>} className="keyboard-button-back"/>
+            <Keyboard button={<Link to="/product-packing-react/main" className="button__back">Назад</Link>} className="keyboard-button-back"/>
             <Footer/>
         </>
     )

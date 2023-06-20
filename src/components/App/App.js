@@ -20,7 +20,7 @@ const cardsExemple = [
     amount:1,
     img: img3,
     repackaging: true,
-    sku: '9db21acf9e6c1a66493c246c1461f989',
+    sku: '60a925ae8e9a0614e9bfbc0ff3e312fd',
     scan: 0,
     full: false
   },
@@ -29,7 +29,7 @@ const cardsExemple = [
     amount:3,
     img: img0,
     repackaging: false,
-    sku: '9db21acf9e6c1a66493c246c1461f989',
+    sku: '63866686c5b036917ed57f86d207c463',
     scan: 0,
     full: false
   },
@@ -38,7 +38,7 @@ const cardsExemple = [
     amount:2,
     img: img1,
     repackaging: false,
-    sku: '9db21acf9e6c1a66493c246c1461f989',
+    sku: '79a24dd2e26f2a6c8b89af68bae28fa4',
     scan: 0,
     full: false
   },
@@ -47,7 +47,7 @@ const cardsExemple = [
     amount:1,
     img: img2,
     repackaging: true,
-    sku: '4aedb72c5662562524f6119918c7179b',
+    sku: '8444d19d31e94c9cd5085caf0f323f1a',
     scan: 0,
     full: false
   },
@@ -56,7 +56,7 @@ const cardsExemple = [
     amount:1,
     img: img4,
     repackaging: false,
-    sku: 'af49bf330e2cf16e44f0be1bdfe337bd',
+    sku: 'd416c6afd5e2a55a7870264a29a64a97',
     scan: 0,
     full: false
   }
@@ -71,12 +71,13 @@ function App() {
   const scanCount = Math.floor(scanInOneShift * 100 / 1100);//колличество сканов для статистики
   const scanInOneHour = 60;//колличество сканов за час для статистики текущей операции
   const sentCards = [];
-  const [cards, setCards] = React.useState();///массив с товарами
+  const [cards, setCards] = React.useState(cardsExemple);///массив с товарами
+  const [scanFullProducts, setScanFullProducts] = React.useState(1);
   const [openStatictic, setOpenStatictic] = React.useState(false);///открывать статистику
   const [statisticsShift, setStatisticsShift] = React.useState({1:0,2:0,3:0});
   const [staticsOperation, setStatisticsOperation] = React.useState({1:0,2:0,3:0});
   const [userStatusTheme, setUserStatusTheme] = React.useState(THEME_BUTTON.default);
-  const [visible,setVisible] = React.useState(false);
+  const [visible,setVisible] = React.useState("hidden");
   const [timer,setTimer] = React.useState(false);
   const [minute,setMinute] = React.useState(60);
   const [second,setSecond] = React.useState(0);
@@ -113,31 +114,35 @@ function App() {
   };
 
   React.useEffect(()=>{
-     api.submitBox("order3")
-    .then(res=>{
-      setBox(res.boxes[0].box);
-      if(box) {
-        api.addedNewOrder(res)
-        .then(setCards(res))
-        .catch(err=>console.log(err))
-      }
-    })
-    .catch(err=>console.log(err))
+  //   api.submitBox("order3")
+  //  .then(res=>{
+  //    setBox(res.boxes[0].box);
+  //    if(box) {
+  //      api.addedNewOrder(res)
+  //      .then(setCards(res))
+   //     .catch(err=>console.log(err))
+   //   }
+  //  })
+  //  .catch(err=>console.log(err))
   },[])
 
   function onScanCard(item) {////сканируе и отправляет на сервер
-    setVisible(true);
-    api.checkProduct(item.sku)
-      .then(res=>{
-        setCheckStatus({full:res.finish,sku: res.status})
-    })
-    .catch(err=>console.log(err))
+    setVisible("");
+   // api.checkProduct(item.sku)
+   //   .then(res=>{
+   //     setCheckStatus({full:res.finish,sku: res.status})
+  //  })
+   // .catch(err=>console.log(err))
     if(!item.full){
       item.scan++;
       sentCards.push(item.sku);
       setCheckStatus({full:false,sku: 'ok'})
       if(item.scan===item.amount) {
+        setScanFullProducts(scanFullProducts+1);
         item.full=true;
+        if(scanFullProducts===cardsExemple.length) {
+          setVisible("button_active");
+        }
       };
       setCards((state) => state.map((c) => c.sku === item.sku ? item : c));
     };
@@ -233,12 +238,22 @@ function App() {
           userStatusTheme={userStatusTheme}
           scanInOneHour={scanInOneHour}
           selectBox={selectBox}
+          second={second}
+          minute={minute}
+          openStatictic={openStatictic} 
+          statisticsShift={statisticsShift} 
+          staticsOperation={staticsOperation}
           />}/>
         <Route path="/product-packing-react/success" element={<Success
           handleOpenStatistic={handleOpenStatistic}
           scanCount={scanCount}
           userStatusTheme={userStatusTheme}
           scanInOneHour={scanInOneHour}
+          second={second}
+          minute={minute}
+          openStatictic={openStatictic} 
+          statisticsShift={statisticsShift} 
+          staticsOperation={staticsOperation}
         />}/>
       </Routes>
   );

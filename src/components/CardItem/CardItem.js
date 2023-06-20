@@ -33,7 +33,7 @@ function CardItem({item, handleScanProduct, hiddenProductsClass, childImg, child
           <p className={tagCardClass} style={{gridRow:`${item.brand && '3/4'}`, marginTop:`${item.brand && '10px'}`}} >Пузырчатая плёнка</p>
         </div>
         {childCount ?  childCount :<div className={scanCardClass} >1 шт.</div> } 
-        {childNumber ? childNumber :  <button className={numberCardClass} onClick={handleClickProduct} disabled={scan || item.cancel} >{item.sku}</button>}
+        {childNumber ? childNumber :  <button className={numberCardClass} onClick={handleClickProduct} disabled={scan || item.cancel} >9234 5678 234 32</button>}
       </div> 
   )
 };

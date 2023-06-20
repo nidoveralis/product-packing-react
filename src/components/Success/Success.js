@@ -13,6 +13,8 @@ function Success(props) {
                 scanCount={props.scanCount}
                 userStatusTheme={props.userStatusTheme}
                 scanInOneHour={props.scanInOneHour}
+                second={props.second}
+                minute={props.minute}
             />
             <div className="success">
                 <Button buttonText="Есть проблема"/>

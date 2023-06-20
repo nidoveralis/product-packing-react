@@ -8,7 +8,7 @@ import editIcon from "../../images/icon__edit.svg";
 
 function Main(props){
 
-  const buttonClass = props.visible ? '' :'hidden'
+  const buttonClass = props.visible ? '' :'hidden';
 
   return(
     <>
@@ -23,7 +23,7 @@ function Main(props){
         <main className="content">
           <Button buttonText="Есть проблема"/>
           <Products cards={props.cards} onScanCard={props.onScanCard} packageType={props.packageType} visible={props.visible} checkStatus={props.checkStatus} />
-          <Button buttonText="Закрыть коробку" buttonClass={buttonClass} onClick={props.closeBox} />
+          <Button buttonText="Закрыть коробку" buttonClass={props.visible} handelClickButton={props.closeBox} buttonActive={props.buttonActive} />
         </main>
         <Keyboard>
             <div className="edit__container">

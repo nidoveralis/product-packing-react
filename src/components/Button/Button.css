@@ -6,6 +6,7 @@
     height: 600px;
     width: 250px;
     margin: 0;
+    cursor: pointer;
 }
 
 .button_active {
