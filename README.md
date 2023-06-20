@@ -36,4 +36,7 @@
 2. Введите в терминале команду npm start
 
 ## Стек технологий:
-* React js,
+* React js
+* Python Django 
+* DRF 
+* FastApi

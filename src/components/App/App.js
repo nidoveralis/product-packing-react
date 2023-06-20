@@ -114,8 +114,9 @@ function App() {
   };
 
   React.useEffect(()=>{
-     api.submitBox("order3")
+    api.submitBox("order3")
     .then(res=>{
+      setTimer(true);
       setBox(res.boxes[0].box);
       if(box) {
         api.addedNewOrder(res)
@@ -150,7 +151,6 @@ function App() {
 
   function handleOpenStatistic() {
     setOpenStatictic(!openStatictic);
-    setTimer(true);
   };
 
   function decideThemeButton() {

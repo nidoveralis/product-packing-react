@@ -1,13 +1,4 @@
 @font-face {
-  font-family: 'YandexSansDisplay';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('./YandexSansDisplay-Bold.woff2') format('woff2'),
-    url('./YandexSansDisplay-Bold.woff') format('woff');
-}
-
-@font-face {
   font-family: 'YandexSansText';
   font-style: normal;
   font-weight: 700;
