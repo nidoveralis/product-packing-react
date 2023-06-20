@@ -71,7 +71,7 @@ function App() {
   const scanCount = Math.floor(scanInOneShift * 100 / 1100);//колличество сканов для статистики
   const scanInOneHour = 60;//колличество сканов за час для статистики текущей операции
   const sentCards = [];
-  const [cards, setCards] = React.useState(cardsExemple);///массив с товарами
+  const [cards, setCards] = React.useState();///массив с товарами
   const [scanFullProducts, setScanFullProducts] = React.useState(1);
   const [openStatictic, setOpenStatictic] = React.useState(false);///открывать статистику
   const [statisticsShift, setStatisticsShift] = React.useState({1:0,2:0,3:0});
@@ -114,25 +114,25 @@ function App() {
   };
 
   React.useEffect(()=>{
-  //   api.submitBox("order3")
-  //  .then(res=>{
-  //    setBox(res.boxes[0].box);
-  //    if(box) {
-  //      api.addedNewOrder(res)
-  //      .then(setCards(res))
-   //     .catch(err=>console.log(err))
-   //   }
-  //  })
-  //  .catch(err=>console.log(err))
+     api.submitBox("order3")
+    .then(res=>{
+      setBox(res.boxes[0].box);
+      if(box) {
+        api.addedNewOrder(res)
+        .then(setCards(res))
+        .catch(err=>console.log(err))
+      }
+    })
+    .catch(err=>console.log(err))
   },[])
 
   function onScanCard(item) {////сканируе и отправляет на сервер
     setVisible("");
-   // api.checkProduct(item.sku)
-   //   .then(res=>{
-   //     setCheckStatus({full:res.finish,sku: res.status})
-  //  })
-   // .catch(err=>console.log(err))
+    api.checkProduct(item.sku)
+      .then(res=>{
+        setCheckStatus({full:res.finish,sku: res.status})
+    })
+    .catch(err=>console.log(err))
     if(!item.full){
       item.scan++;
       sentCards.push(item.sku);
@@ -140,7 +140,7 @@ function App() {
       if(item.scan===item.amount) {
         setScanFullProducts(scanFullProducts+1);
         item.full=true;
-        if(scanFullProducts===cardsExemple.length) {
+        if(scanFullProducts===cards.length) {
           setVisible("button_active");
         }
       };

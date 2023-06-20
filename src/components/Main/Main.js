@@ -8,8 +8,6 @@ import editIcon from "../../images/icon__edit.svg";
 
 function Main(props){
 
-  const buttonClass = props.visible ? '' :'hidden';
-
   return(
     <>
         <Header
