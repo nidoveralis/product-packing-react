@@ -36,7 +36,7 @@
 2. Введите в терминале команду npm start
 
 ## Стек технологий:
-* React js
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 * Python Django 
 * DRF 
 * FastApi
