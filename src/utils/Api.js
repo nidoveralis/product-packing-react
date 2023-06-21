@@ -16,7 +16,7 @@ class Api {
 
   submitBox(data) {
     return fetch(`${this._baseUrl}/front-pull/v1/`, {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
