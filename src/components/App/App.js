@@ -122,7 +122,7 @@ function App() {
       setBox(res.boxes[0].box);
       if(box) {
         api.addedNewOrder(res)
-        .then(setCards(res))
+        .then(res=>{setCards(res);navigate('/main') })
         .catch(err=>console.log(err))
       }
     })
