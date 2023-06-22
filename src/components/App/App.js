@@ -122,7 +122,10 @@ function App() {
         res.boxes.map((el)=>setBox(el.box))
       if(box) {
         api.addedNewOrder(res)
-        .then(res=>{setCards(res);navigate("/product-packing-react/main") })
+        .then(res=>{
+          res.boxes.map((el)=>setCards(el.skus))
+          navigate("/product-packing-react/main") 
+        })
         .catch(err=>console.log(err))
       }
     })
