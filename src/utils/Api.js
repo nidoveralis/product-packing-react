@@ -20,7 +20,8 @@ class Api {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      },) 
+      },
+    }) 
     .then(res => this._getResponseData(res))
   }
 
