@@ -119,7 +119,7 @@ function App() {
     .then(res=>{
       setTimer(true);
         setPackageType(res.selected_carton)
-      setBox(res.boxes[0].box);
+        res.boxes.map((el)=>setBox(el.box))
       if(box) {
         api.addedNewOrder(res)
         .then(res=>{setCards(res);navigate("/product-packing-react/main") })
