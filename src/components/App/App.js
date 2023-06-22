@@ -122,7 +122,7 @@ function App() {
       setBox(res.boxes[0].box);
       if(box) {
         api.addedNewOrder(res)
-        .then(res=>{setCards(res);navigate('/main') })
+        .then(res=>{setCards(res);navigate("/product-packing-react/main") })
         .catch(err=>console.log(err))
       }
     })
