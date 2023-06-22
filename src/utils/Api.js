@@ -14,17 +14,13 @@ class Api {
     return res.json()
   }
 
-  submitBox(data) {
+  submitBox() {
     return fetch(`${this._baseUrl}/front-pull/v1/`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      },
-      body:JSON.stringify({
-        orderkey: data
-      })
-    })
+      }) 
     .then(res => this._getResponseData(res))
   }
 
