@@ -115,7 +115,7 @@ function App() {
   };
 
   React.useEffect(()=>{
-    api.submitBox("order3")
+    api.submitBox()
     .then(res=>{
       setTimer(true);
         setPackageType(res.selected_carton)
